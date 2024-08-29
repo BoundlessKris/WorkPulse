@@ -49,3 +49,5 @@ WorkPulse is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For any inquiries or support, please reach out to us at [ankit245202@gmail.com].
+For any inquiries or support, please reach out to us at [satyajyoti05@gmail.com].
+For any inquiries or support, please reach out to us at [tbhhero@gmail.com].
