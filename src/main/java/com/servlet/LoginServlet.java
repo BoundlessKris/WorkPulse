@@ -1,4 +1,4 @@
-package com.login;
+package com.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;

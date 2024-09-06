@@ -1,4 +1,4 @@
-package com.registration.model;
+package com.model;
 
 public class RegModel {
     private String name;

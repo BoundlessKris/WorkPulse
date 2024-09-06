@@ -1,10 +1,12 @@
-package com.registration.dao;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import com.model.RegModel;
+
 import java.sql.PreparedStatement;
-import com.registration.model.RegModel;
 
 public class RegistrationDao {
     private static final String URL = "jdbc:mysql://localhost:3306/user_info";

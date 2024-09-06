@@ -1,7 +1,7 @@
-package com.registration;
+package com.servlet;
 
-import com.registration.dao.RegistrationDao;
-import com.registration.model.RegModel;
+import com.dao.RegistrationDao;
+import com.model.RegModel;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
