@@ -6,13 +6,9 @@
 <body>
 <%
     if (session == null || session.getAttribute("username") == null) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("landing.jsp");
         return;
     }
-    String username = (String) session.getAttribute("username");
 %>
-    <h2>Welcome, ${username}!</h2>
-    <p>You have successfully logged in.</p>
-    <a href="LogoutServlet">Logout</a>
 </body>
 </html>

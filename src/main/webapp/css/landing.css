@@ -1,0 +1,165 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+  }
+  
+  /* Navbar */
+.navbar {
+  background-color: #433a3a;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.navbar .logo img {
+  height: 15vh;
+  display: flex;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar .nav-links li {
+  margin-left: 20px;
+}
+
+.navbar .nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn {
+  background-color: #0077b6;
+}
+
+.login-btn:hover {
+  background-color: #005f8a;
+}
+
+.sign-up-btn {
+  background-color: #00b22d;
+}
+
+.sign-up-btn:hover {
+  background-color: #00771b;
+}
+  
+  /* Hero Section */
+  .hero {
+    background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 300px;
+  }
+  
+  .search-bar button {
+    padding: 10px;
+    background-color: #00b22d;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Categories Section */
+.categories {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+  margin: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.category-item:hover {
+  background-color: #00b22d;
+  color: white;
+  transform: scale(1.05);
+}
+  
+  /* Featured Services */
+  .featured {
+    background-color: #fff;
+    padding: 50px 20px;
+  }
+  
+  .featured .service-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .service-item {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .service-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .service-item h3 {
+    margin-top: 10px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #00b22d;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
