@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /* Basic Reset */
 * {
 	margin: 0;
@@ -73,13 +74,10 @@ body {
 
 /* Hero Section */
 .hero {
-	background: url('https://via.placeholder.com/1920x600') no-repeat center
-		center/cover;
 	height: 600px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
 }
 
 .hero-content {
@@ -94,6 +92,7 @@ body {
 .search-bar input {
 	padding: 10px;
 	width: 300px;
+	border-radius: 20px;
 }
 
 .search-bar button {
@@ -101,6 +100,7 @@ body {
 	background-color: #00b22d;
 	color: white;
 	border: none;
+	border-radius: 20px;
 	cursor: pointer;
 }
 
@@ -139,24 +139,79 @@ body {
 	padding: 50px 20px;
 }
 
-.featured .service-list {
+.featured h2 {
+	text-align: left;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.service-list {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .service-item {
-	width: 200px;
-	text-align: center;
+	flex-basis: 18%;
+	margin-bottom: 20px;
 	cursor: pointer;
 }
 
-.service-item img {
-	width: 100%;
-	height: auto;
+.service-card {
+	background-color: #fff;
+	border-radius: 15px;
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.service-item h3 {
+.service-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.service-card h3 {
+	font-size: 1.2rem;
+	color: #fff;
 	margin-top: 10px;
+}
+
+/* Specific background colors for each service card */
+.website-development {
+	background-color: #3E8E41;
+}
+
+.logo-design {
+	background-color: #FF7043;
+}
+
+.seo {
+	background-color: #00695C;
+}
+
+.social-media {
+	background-color: #827717;
+}
+
+.software-dev {
+	background-color: #A04747;
+}
+
+.ecommerce {
+	background-color: #6D4C41;
+}
+
+.dsml {
+	background-color: #48CFCB;
 }
 
 /* Freelance Info Section */
@@ -203,6 +258,84 @@ body {
 .icon {
 	font-size: 2rem;
 	margin-bottom: 10px;
+}
+
+/* Guides Section */
+.guides {
+	padding: 50px 20px;
+	text-align: center;
+	background-color: #f9f9f9;
+}
+
+.guides h2 {
+	font-size: 2rem;
+	margin-bottom: 30px;
+	color: #333;
+}
+
+.guides-container {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.guide-item {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	width: 250px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-item img {
+	width: 100%;
+	height: 60%;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.guide-item p {
+	font-size: 1.1rem;
+	color: #666;
+}
+
+.guide-item:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Fiverr Section */
+.workpulse-section {
+	background-color: #3c1f1f;
+	color: white;
+	padding: 50px 20px;
+	text-align: center;
+}
+
+.workpulse-section h2 {
+	font-size: 2.5rem;
+	margin-bottom: 30px;
+}
+
+.workpulse-section .highlight {
+	color: #e07a5f;
+}
+
+.join-btn {
+	background-color: #e07a5f;
+	color: white;
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.join-btn:hover {
+	background-color: #bc5a41;
 }
 
 /* Footer */
