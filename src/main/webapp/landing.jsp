@@ -26,7 +26,8 @@
 	</header>
 
 	<!-- Hero Section -->
-	<section class="hero">
+	<section class="hero"
+		style="background: url('assets/hero.png') no-repeat center center/cover;">
 		<div class="hero-content">
 			<h1>Find the perfect freelance services for your business</h1>
 			<form class="search-bar">
@@ -55,35 +56,49 @@
 	<!-- Featured Services -->
 	<a name="services"></a>
 	<section class="featured">
-		<h2>Featured Freelance Services</h2>
+		<h2>Featured Freelanc Services</h2>
 		<div class="service-list">
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>Website Devlopment</h3>
+				<div class="service-card website-development">
+					<h3>Website Development</h3>
+					<img src="assets/web.jpg" alt="Website Development">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>SEO Services</h3>
+				<div class="service-card logo-design">
+					<h3>Logo Design</h3>
+					<img src="assets/logo.jpg" alt="Logo Design">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>Logo Design</h3>
+				<div class="service-card seo">
+					<h3>SEO</h3>
+					<img src="assets/seo.png" alt="SEO">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>Social Media Marketing</h3>
+				<div class="service-card social-media">
+					<h3>Social Media Marketing</h3>
+					<img src="assets/social.jpg" alt="Social Media Marketing">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>Software Development</h3>
+				<div class="service-card software-dev">
+					<h3>Software Development</h3>
+					<img src="assets/software.jpg" alt="Software-dev">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>E-Commerce Marketing</h3>
+				<div class="service-card ecommerce">
+					<h3>E-Commerce Marketing</h3>
+					<img src="assets/ecommerce.png" alt="E-Commerce">
+				</div>
 			</div>
 			<div class="service-item">
-				<img src="https://via.placeholder.com/150" alt="Service Image">
-				<h3>Data Science & ML</h3>
+				<div class="service-card dsml">
+					<h3>Data Science & ML</h3>
+					<img src="assets/ml.jpeg" alt="Data Science & ML">
+				</div>
 			</div>
 		</div>
 	</section>
@@ -117,6 +132,34 @@
 					any issues with your orders.</p>
 			</div>
 		</div>
+	</section>
+
+	<!-- Guides Section -->
+	<section class="guides">
+		<h2>Guides to help you grow</h2>
+		<div class="guides-container">
+			<div class="guide-item">
+				<img src="assets/business.jpg" alt="Start a side business">
+				<p>Start a side business</p>
+			</div>
+			<div class="guide-item">
+				<img src="assets/ecommerce-ideas.jpg" alt="Ecommerce business ideas">
+				<p>Ecommerce business ideas</p>
+			</div>
+			<div class="guide-item">
+				<img src="assets/online.png"
+					alt="Start an online business and work from home">
+				<p>Start an online business and work from home</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- WorkPulse Section -->
+	<section class="workpulse-section">
+		<h2>
+			Freelance services at your <span class="highlight">fingertips!</span>
+		</h2>
+		<button class="join-btn">Join WorkPulse</button>
 	</section>
 
 	<!-- Footer -->
