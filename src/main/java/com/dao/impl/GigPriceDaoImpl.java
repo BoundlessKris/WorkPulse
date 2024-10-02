@@ -3,6 +3,8 @@ package com.dao.impl;
 import com.dao.interfaces.GigPriceDao;
 import com.model.GigPrice;
 import com.util.DatabaseConnection;
+
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,27 +112,76 @@ public class GigPriceDaoImpl implements GigPriceDao {
         return gigPrice;
     }
 
-	@Override
-	public GigPrice findBasePrice(int gigId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public GigPrice findBasePrice(int gigId) throws Exception {
+        String sql = "SELECT * FROM gig_prices WHERE gig_id = ? ORDER BY price ASC LIMIT 1";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-	@Override
-	public List<GigPrice> findByPriceRange(double minPrice, double maxPrice) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+            ps.setInt(1, gigId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return extractGigPriceFromResultSet(rs);
+                }
+            }
+        }
+        return null;
+    }
 
-	@Override
-	public boolean hasMultipleTiers(int gigId) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public GigPrice findHighestTier(int gigId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+    @Override
+    public List<GigPrice> findByPriceRange(double minPrice, double maxPrice) throws Exception {
+        List<GigPrice> prices = new ArrayList<>();
+        String sql = "SELECT * FROM gig_prices WHERE price BETWEEN ? AND ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setDouble(1, minPrice);
+            ps.setDouble(2, maxPrice);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    prices.add(extractGigPriceFromResultSet(rs));
+                }
+            }
+        }
+        return prices;
+    }
+
+    @Override
+    public List<GigPrice> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) throws Exception {
+        return List.of();
+    }
+
+    @Override
+    public boolean hasMultipleTiers(int gigId) throws Exception {
+        String sql = "SELECT COUNT(*) FROM gig_prices WHERE gig_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, gigId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 1;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public GigPrice findHighestTier(int gigId) throws Exception {
+        String sql = "SELECT * FROM gig_prices WHERE gig_id = ? ORDER BY price DESC LIMIT 1";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, gigId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return extractGigPriceFromResultSet(rs);
+                }
+            }
+        }
+        return null;
+    }
 }

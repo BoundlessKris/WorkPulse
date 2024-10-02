@@ -1,6 +1,8 @@
 package com.dao.interfaces;
 
 import com.model.GigPrice;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface GigPriceDao {
@@ -87,6 +89,8 @@ public interface GigPriceDao {
      * @throws Exception If there's an error during the database operation
      */
     List<GigPrice> findByPriceRange(double minPrice, double maxPrice) throws Exception;
+
+    List<GigPrice> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) throws Exception;
 
     /**
      * Checks if a gig has multiple pricing tiers.
