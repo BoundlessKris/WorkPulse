@@ -8,13 +8,13 @@ public class GigPrice {
     private int priceId;
     private int gigId;
     private String tierName;
-    private BigDecimal price;
+    private double price;
     private String description;
 
     public GigPrice() {
     }
 
-    public GigPrice(int priceId, int gigId, String tierName, BigDecimal price, String description) {
+    public GigPrice(int priceId, int gigId, String tierName, double price, String description) {
         this.priceId = priceId;
         this.gigId = gigId;
         this.tierName = tierName;
@@ -46,11 +46,11 @@ public class GigPrice {
         this.tierName = tierName;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

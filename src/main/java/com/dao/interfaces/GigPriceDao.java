@@ -90,8 +90,6 @@ public interface GigPriceDao {
      */
     List<GigPrice> findByPriceRange(double minPrice, double maxPrice) throws Exception;
 
-    List<GigPrice> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) throws Exception;
-
     /**
      * Checks if a gig has multiple pricing tiers.
      * Purpose: To determine if a gig offers different pricing options.

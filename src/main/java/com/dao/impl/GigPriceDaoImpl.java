@@ -19,7 +19,7 @@ public class GigPriceDaoImpl implements GigPriceDao {
 
             ps.setInt(1, gigPrice.getGigId());
             ps.setString(2, gigPrice.getTierName());
-            ps.setBigDecimal(3, gigPrice.getPrice());
+            ps.setDouble(3, gigPrice.getPrice());
             ps.setString(4, gigPrice.getDescription());
 
             int affectedRows = ps.executeUpdate();
@@ -79,7 +79,7 @@ public class GigPriceDaoImpl implements GigPriceDao {
 
             ps.setInt(1, gigPrice.getGigId());
             ps.setString(2, gigPrice.getTierName());
-            ps.setBigDecimal(3, gigPrice.getPrice());
+            ps.setDouble(3, gigPrice.getPrice());
             ps.setString(4, gigPrice.getDescription());
             ps.setInt(5, gigPrice.getPriceId());
 
@@ -107,7 +107,7 @@ public class GigPriceDaoImpl implements GigPriceDao {
         gigPrice.setPriceId(rs.getInt("price_id"));
         gigPrice.setGigId(rs.getInt("gig_id"));
         gigPrice.setTierName(rs.getString("tier_name"));
-        gigPrice.setPrice(rs.getBigDecimal("price"));
+        gigPrice.setPrice(rs.getDouble("price"));
         gigPrice.setDescription(rs.getString("description"));
         return gigPrice;
     }
@@ -148,10 +148,10 @@ public class GigPriceDaoImpl implements GigPriceDao {
         return prices;
     }
 
-    @Override
-    public List<GigPrice> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) throws Exception {
-        return List.of();
-    }
+//    @Override
+//    public List<GigPrice> findByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) throws Exception {
+//        return List.of();
+//    }
 
     @Override
     public boolean hasMultipleTiers(int gigId) throws Exception {
