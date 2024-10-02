@@ -102,6 +102,75 @@ public class GigCategoryDaoImpl implements GigCategoryDao {
         }
     }
 
+    @Override
+    public List<GigCategory> findSubcategories(int parentId) throws Exception {
+        List<GigCategory> subcategories = new ArrayList<>();
+        String sql = "SELECT * FROM gig_categories WHERE parent_category_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, parentId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    subcategories.add(extractGigCategoryFromResultSet(rs));
+                }
+            }
+        }
+        return subcategories;
+    }
+
+    @Override
+    public List<GigCategory> findTopLevelCategories() throws Exception {
+        List<GigCategory> topLevelCategories = new ArrayList<>();
+        String sql = "SELECT * FROM gig_categories WHERE parent_category_id IS NULL";
+        try (Connection con = DatabaseConnection.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                topLevelCategories.add(extractGigCategoryFromResultSet(rs));
+            }
+        }
+        return topLevelCategories;
+    }
+
+    @Override
+    public GigCategory findParentCategory(int categoryId) throws Exception {
+        String sql = "SELECT p.* FROM gig_categories c JOIN gig_categories p ON c.parent_category_id = p.category_id WHERE c.category_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, categoryId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return extractGigCategoryFromResultSet(rs);
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public int countGigsInCategory(int categoryId) throws Exception {
+        String sql = "SELECT COUNT(*) FROM gigs g JOIN gig_categories gc ON g.category_id = gc.category_id WHERE gc.category_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, categoryId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean hasGigs(int categoryId) throws Exception {
+        return countGigsInCategory(categoryId) > 0;
+    }
+
     private GigCategory extractGigCategoryFromResultSet(ResultSet rs) throws SQLException {
         GigCategory category = new GigCategory();
         category.setCategoryId(rs.getInt("category_id"));
@@ -112,34 +181,4 @@ public class GigCategoryDaoImpl implements GigCategoryDao {
         }
         return category;
     }
-
-	@Override
-	public List<GigCategory> findSubcategories(int parentId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<GigCategory> findTopLevelCategories() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public GigCategory findParentCategory(int categoryId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int countGigsInCategory(int categoryId) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean hasGigs(int categoryId) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
