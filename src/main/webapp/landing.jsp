@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WorkPulse - Freelance Services Marketplace</title>
-<link rel="stylesheet" href="css/landing.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkPulse - Freelance Services Marketplace</title>
+  <link rel="stylesheet" href="css/land.css">
+  <!-- Google Icons Link -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
 </head>
 <body>
-	<!-- Navbar -->
-	<header>
-		<nav class="navbar">
-			<div class="logo">
-				<img src="assets/workpulse.png" alt="WorkPulse">
-			</div>
-			<ul class="nav-links">
-				<li><a href="landing.jsp">Home</a></li>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="assets/work.png" alt="WorkPulse">
+      </a>
+      <ul class="menu-links">
+        <li><a href="landing.jsp">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#categories">Categories</a></li>
 				<li><a href="#services">Services</a></li>
-				<li><a href="login.jsp" class="nav-btn login-btn">Log In</a></li>
-				<li><a href="register.jsp" class="nav-btn sign-up-btn">Sign
-						Up</a></li>
-			</ul>
-		</nav>
-	</header>
+        <li><a href="#">Explore</a></li>
+        <li class="language-item">
+          <a href="#">
+            <span class="material-symbols-outlined">language</span>
+            English
+          </a>
+        </li>
+        <li><a href="#">Become a Seller</a></li>
+        <li><a href="login.jsp">Login</a></li>
+        <li class="sign-up-btn"><a href="register.jsp">Join Us</a></li>
+        <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
 
-	<!-- Hero Section -->
-	<section class="hero"
-		style="background: url('assets/hero.png') no-repeat center center/cover;">
-		<div class="hero-content">
-			<h1>Find the perfect freelance services for your business</h1>
-			<form class="search-bar">
-				<input type="text" placeholder="Try 'logo design'">
-				<button type="submit">Search</button>
-			</form>
-		</div>
-	</section>
+  <!-- Hero Section -->
+  <section class="hero-section" style="background: url('assets/hero-img.jpg') no-repeat center center/cover;">
+    <div class="content">
+      <h1>Find the right freelance service, right away</h1>
+      <form action="#" class="search-form">
+        <input type="text" placeholder="Search for any service..." required>
+        <button class="material-symbols-outlined" type="submit">search</button>
+      </form>
+      <div class="popular-tags">
+        Popular:
+        <ul class="tags">
+          <li><a href="#">Webite Design</a></li>
+          <li><a href="#">Logo Design</a></li>
+          <li><a href="#">WordPress</a></li>
+          <li><a href="#">AI Design</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<!-- Popular Categories -->
+  <!-- Popular Categories -->
 	<a name="categories"></a>
 	<section class="categories">
 		<h2>Explore Popular Categories</h2>
 		<div class="category-list">
-			<div class="category-item">Programming & Tech</div>
-			<div class="category-item">Graphic Design</div>
-			<div class="category-item">Digital Marketing</div>
-			<div class="category-item">Writing & Translation</div>
-			<div class="category-item">Video & Animation</div>
-			<div class="category-item">AI Services</div>
-			<div class="category-item">Music & Audio</div>
-			<div class="category-item">Consulting</div>
-		</div>
+        <a href="programming-tech.jsp" class="category-item">Programming & Tech</a>
+        <a href="graphic-design.jsp" class="category-item">Graphic Design</a>
+        <a href="digital-marketing.jsp" class="category-item">Digital Marketing</a>
+        <a href="writing-translation.jsp" class="category-item">Writing & Translation</a>
+        <a href="video-animation.jsp" class="category-item">Video & Animation</a>
+        <a href="ai-services.jsp" class="category-item">AI Services</a>
+        <a href="music-audio.jsp" class="category-item">Music & Audio</a>
+        <a href="consulting.jsp" class="category-item">Consulting</a>
+    </div>
 	</section>
 
 	<!-- Featured Services -->
@@ -170,6 +189,17 @@
 		</div>
 		<p>&copy; 2024 WorkPulse. All rights reserved.</p>
 	</footer>
+  
+  <script>
+    const header = document.querySelector("header");
+    const hamburgerBtn = document.querySelector("#hamburger-btn");
+    const closeMenuBtn = document.querySelector("#close-menu-btn");
 
+    // Toggle mobile menu on hamburger button click
+    hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+    // Close mobile menu on close button click
+    closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+  </script>
 </body>
 </html>
