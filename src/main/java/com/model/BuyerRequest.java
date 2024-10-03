@@ -105,4 +105,9 @@ public class BuyerRequest {
     public int hashCode() {
         return Objects.hash(requestId, buyerId, title, description, budget, createdAt, expiresAt);
     }
+
+	public BuyerRequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
