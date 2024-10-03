@@ -65,6 +65,8 @@ public interface OrderDao {
      */
     Order update(Order order) throws Exception;
 
+    void delete(int id) throws Exception;
+
     /**
      * Retrieves orders by their status.
      * Purpose: To get a list of orders with a specific status.
