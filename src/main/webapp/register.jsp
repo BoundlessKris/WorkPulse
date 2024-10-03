@@ -10,12 +10,8 @@
 	<form action="Registration" method="post" class="login-form">
 		<h2>Registration</h2>
 		<div class="input-box">
-			First Name: <input type="text" placeholder="First Name"
-				name="first_name"><br>
-		</div>
-		<div class="input-box">
-			Last Name: <input type="text" placeholder="Last Name"
-				name="last_name"><br>
+			Name: <input type="text" placeholder="Name"
+				name="name"><br>
 		</div>
 		<div class="input-box">
 			Email: <input type="email" placeholder="Email" name="email"><br>

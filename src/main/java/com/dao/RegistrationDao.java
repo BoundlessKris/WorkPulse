@@ -29,7 +29,7 @@ public class RegistrationDao {
     public boolean saveRegistration(RegModel regModel) {
         boolean status = false;
         try (Connection connection = RegistrationDao.getConnection()) {
-            String query = "INSERT INTO user (name, email, username,password) VALUES (?, ?, ?,?)";
+            String query = "INSERT INTO users (name, email, username,password) VALUES (?, ?, ?,?)";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, regModel.getName());
             ps.setString(2, regModel.getEmail());
