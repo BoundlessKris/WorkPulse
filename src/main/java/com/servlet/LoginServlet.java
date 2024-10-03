@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         boolean isValidUser = false;
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM user WHERE username = ? AND password = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?")) {
 
             stmt.setString(1, username);
             stmt.setString(2, password);
