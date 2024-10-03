@@ -182,6 +182,58 @@ public class UserDaoImpl implements UserDao {
         return false;
     }
 
+    @Override
+    public List<User> findByUserType(String userType) throws Exception {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE user_type = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, userType);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    users.add(extractUserFromResultSet(rs));
+                }
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public int getTotalCount() throws Exception {
+        String sql = "SELECT COUNT(*) FROM users";
+        try (Connection con = DatabaseConnection.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public List<User> searchByKeyword(String keyword) throws Exception {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE username LIKE ? OR email LIKE ? OR description LIKE ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            String searchPattern = "%" + keyword + "%";
+            ps.setString(1, searchPattern);
+            ps.setString(2, searchPattern);
+            ps.setString(3, searchPattern);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    users.add(extractUserFromResultSet(rs));
+                }
+            }
+        }
+        return users;
+    }
+
     private User extractUserFromResultSet(ResultSet rs) throws SQLException {
         User user = new User();
         user.setUserId(rs.getInt("user_id"));
