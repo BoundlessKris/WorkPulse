@@ -30,6 +30,7 @@ public class Registration extends HttpServlet {
 
         if (isSaved) {
             response.getWriter().append("Registration Successful!");
+            response.sendRedirect("login.jsp");
         } else {
             response.getWriter().append("Registration Failed!");
         }
