@@ -8,22 +8,19 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class DatabaseConnection {
-    private static final String PROPERTIES_FILE = "/database.properties";
-    private static Properties props = new Properties();
-
+    private static final String URL = "jdbc:mysql://localhost:3306/workpulse";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root123@";
     static {
-        try (InputStream is = DatabaseConnection.class.getResourceAsStream(PROPERTIES_FILE)) {
-            props.load(is);
-        } catch (IOException e) {
-            throw new ExceptionInInitializerError("Failed to load database properties");
+        try {
+            // Load the MySQL JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
     public static Connection getConnection() throws SQLException {
-        String url = props.getProperty("db.url");
-        String user = props.getProperty("db.user");
-        String password = props.getProperty("db.password");
-
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 }

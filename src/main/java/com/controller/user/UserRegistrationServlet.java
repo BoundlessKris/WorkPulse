@@ -1,11 +1,13 @@
 package com.controller.user;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDateTime;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.model.User;
 import com.service.interfaces.UserService;
@@ -15,7 +17,7 @@ import com.dao.impl.UserDaoImpl;
 /**
  * Servlet implementation class UserRegistrationServlet
  */
-@WebServlet("/user/register")
+@WebServlet("/UserRegistrationServlet")
 public class UserRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,59 +25,72 @@ public class UserRegistrationServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
+		// Initialize UserService with UserDao implementation
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserRegistrationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public UserRegistrationServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Handles GET requests.
 	 */
+//	@Override
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		// Redirect to the registration page
+//		response.sendRedirect("login.jsp");
+//	}
+
+	/**
+	 * Handles POST requests (user registration).
+	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
+		String userType = request.getParameter("userType");
 
+		// Validate password confirmation
 		if (!password.equals(confirmPassword)) {
+			System.out.println("Passwords do not match");
 			request.setAttribute("error", "Passwords do not match");
-			request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			return;
 		}
 
+		// Create a new User object and set its properties
 		User user = new User();
 		user.setUsername(username);
 		user.setEmail(email);
-		user.setPasswordHash(password);  // Will be hashed in UserService
+		user.setPasswordHash(password); // Ensure the password is hashed inside UserService
+		user.setUserType(userType);
+		user.setSellerLevel("new"); // Default value if not provided
+		user.setCreatedAt(LocalDateTime.now()); // Set the creation time
 
 		try {
+			// Log for debugging
+			System.out.println("Attempting to register user: " + username);
+
 			User registeredUser = userService.registerUser(user);
 			if (registeredUser != null) {
-				request.setAttribute("message", "Registration successful! Please log in.");
-				response.sendRedirect(request.getContextPath() + "/user/login");
+				// Registration successful, redirect to login page
+				response.sendRedirect(request.getContextPath() + "/login.jsp");
+				System.out.println("registration successful");
 			} else {
+				// Registration failed, display error on registration page
+				System.out.println("registration unsuccessful");
 				request.setAttribute("error", "Registration failed. Please try again.");
-				request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+			// Handle any unexpected exceptions
+			System.out.println("registration unsuccessful catch block");
 			request.setAttribute("error", "An error occurred: " + e.getMessage());
-			request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
 		}
 	}
-	}
-
-
+}

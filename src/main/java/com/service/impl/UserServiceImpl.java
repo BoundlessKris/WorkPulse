@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(User user) throws Exception {
+        System.out.println("Checking username availability: " + user.getUsername());
         if (isUsernameAvailable(user.getUsername()) && isEmailAvailable(user.getEmail())) {
             user.setPasswordHash(hashPassword(user.getPasswordHash()));
             return userDao.create(user);

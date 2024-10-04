@@ -21,6 +21,8 @@ public class UserDaoImpl implements UserDao {
             ps.setString(4, user.getUserType());
             ps.setString(5, user.getSellerLevel());
             ps.setTimestamp(6, Timestamp.valueOf(user.getCreatedAt()));
+            System.out.println("Inserting user: " + user.getUsername() + ", " + user.getEmail());
+
 
             int affectedRows = ps.executeUpdate();
             if (affectedRows == 0) {

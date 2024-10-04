@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <form action="LoginServlet" method="post" class="login-form">
+    <form action="UserLoginServlet" method="post" class="login-form">
         <h2>Sign In</h2>
         <div class="input-box">
           <input type="text" name="username" placeholder="Username" required>
