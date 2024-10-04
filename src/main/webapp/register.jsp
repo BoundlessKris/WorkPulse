@@ -7,11 +7,19 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/register" method="post" class="login-form">
+<form action="register" method="post" class="login-form">
 	<h2>Registration</h2>
-	<% if(request.getAttribute("error") != null) { %>
+
+	<%-- Error message display --%>
+	<% if (request.getAttribute("error") != null) { %>
 	<div class="error"><%= request.getAttribute("error") %></div>
 	<% } %>
+
+	<%-- Success message display (optional) --%>
+	<% if (request.getAttribute("message") != null) { %>
+	<div class="message"><%= request.getAttribute("message") %></div>
+	<% } %>
+
 	<div class="input-box">
 		<input type="text" placeholder="Username" name="username" required>
 	</div>
