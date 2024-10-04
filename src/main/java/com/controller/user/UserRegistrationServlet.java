@@ -1,11 +1,11 @@
 package com.controller.user;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.model.User;
 import com.service.interfaces.UserService;
@@ -15,7 +15,7 @@ import com.dao.impl.UserDaoImpl;
 /**
  * Servlet implementation class UserRegistrationServlet
  */
-@WebServlet("/user/register")
+@WebServlet("/register")
 public class UserRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,21 +25,12 @@ public class UserRegistrationServlet extends HttpServlet {
 	public void init() throws ServletException {
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserRegistrationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/register.jsp").forward(request, response);
 	}
 
 	/**
@@ -50,10 +41,16 @@ public class UserRegistrationServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
+		String userType = request.getParameter("userType");
 
 		if (!password.equals(confirmPassword)) {
 			request.setAttribute("error", "Passwords do not match");
-			request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
+			return;
+		}
+		if (userType == null || (!userType.equals("buyer") && !userType.equals("seller"))) {
+			request.setAttribute("error", "Invalid user type selected");
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			return;
 		}
 
@@ -61,19 +58,20 @@ public class UserRegistrationServlet extends HttpServlet {
 		user.setUsername(username);
 		user.setEmail(email);
 		user.setPasswordHash(password);  // Will be hashed in UserService
+		user.setUserType(userType);
 
 		try {
 			User registeredUser = userService.registerUser(user);
 			if (registeredUser != null) {
 				request.setAttribute("message", "Registration successful! Please log in.");
-				response.sendRedirect(request.getContextPath() + "/user/login");
+				response.sendRedirect(request.getContextPath() + "/login.jsp");
 			} else {
 				request.setAttribute("error", "Registration failed. Please try again.");
-				request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+				request.getRequestDispatcher("/register.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
 			request.setAttribute("error", "An error occurred: " + e.getMessage());
-			request.getRequestDispatcher("/WEB-INF/jsp/user/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
 		}
 	}
 	}
