@@ -1,50 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registration</title>
-	<link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<form action="register" method="post" class="login-form">
-	<h2>Registration</h2>
-
-	<%-- Error message display --%>
-	<% if (request.getAttribute("error") != null) { %>
-	<div class="error"><%= request.getAttribute("error") %></div>
-	<% } %>
-
-	<%-- Success message display (optional) --%>
-	<% if (request.getAttribute("message") != null) { %>
-	<div class="message"><%= request.getAttribute("message") %></div>
-	<% } %>
-
-	<div class="input-box">
-		<input type="text" placeholder="Username" name="username" required>
-	</div>
-	<div class="input-box">
-		<input type="email" placeholder="Email" name="email" required>
-	</div>
-	<div class="input-box">
-		<input type="password" placeholder="Password" name="password" required>
-	</div>
-	<div class="input-box">
-		<input type="password" placeholder="Confirm Password" name="confirmPassword" required>
-	</div>
-	<div class="input-box">
-		<select name="userType" required>
-			<option value="">Select User Type</option>
-			<option value="buyer">Buyer</option>
-			<option value="seller">Seller</option>
-		</select>
-	</div>
-	<div class="input-box">
-		<input type="submit" value="Register" class="login-btn">
-	</div>
-	<h3>
-		Have an account? <a href="login.jsp">Log In</a>
-	</h3>
-</form>
+	<form action="Registration" method="post" class="login-form">
+		<h2>Registration</h2>
+		<div class="input-box">
+			Name: <input type="text" placeholder="Name"
+				name="name"><br>
+		</div>
+		<div class="input-box">
+			Email: <input type="email" placeholder="Email" name="email"><br>
+		</div>
+		<div class="input-box">
+			Username: <input type="text" placeholder="Username" name="username"><br>
+		</div>
+		<div class="input-box">
+			Password : <input type="password" placeholder="Password"
+				name="password"><br>
+		</div>
+		<div class="input-box">
+			<input type="submit" value="Register" class="login-btn">
+		</div>
+		<h3>
+			Have an account? <a href="login.jsp">Log In</a>
+		</h3>
+	</form>
 </body>
 </html>

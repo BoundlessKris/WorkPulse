@@ -89,23 +89,3 @@ h3 {
         font-size: 2rem;
     }
 }
-
-.input-box select {
-    background-color: #fff;
-    border: none;
-    border-radius: 5px;
-    color: #8f2c24;
-    font-size: 1.6rem;
-    margin-bottom: 3rem;
-    padding: 1.5rem 2rem;
-    outline: none;
-    width: 100%;
-    appearance: none; /* This removes the default browser styling of the select dropdown */
-}
-.input-box select:focus {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-}
-
-.input-box select option {
-    color: #8f2c24;
-}
