@@ -5,11 +5,11 @@ import com.service.impl.UserServiceImpl;
 import com.service.interfaces.UserService;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class UserPasswordResetServlet
@@ -24,7 +24,7 @@ public class UserPasswordResetServlet extends HttpServlet {
 	public void init() throws ServletException {
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
