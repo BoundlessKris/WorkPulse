@@ -121,4 +121,43 @@ public interface UserDao {
      * @throws Exception If there's an error during the database operation
      */
     boolean isEmailAvailable(String email) throws Exception;
+
+
+    /**
+     * Retrieves all users of a specific user type.
+     * Purpose: To fetch users based on their role in the system.
+     * Use cases:
+     * - Filtering users by their role (buyer, seller, admin)
+     * - Generating role-specific reports or statistics
+     * - Implementing role-based features or notifications
+     * @param userType The type of user to retrieve (e.g., "buyer", "seller", "admin")
+     * @return A List of User objects matching the specified user type
+     * @throws Exception If there's an error during the database operation
+     */
+    List<User> findByUserType(String userType) throws Exception;
+
+    /**
+     * Counts the total number of users in the system.
+     * Purpose: To get the overall count of users for statistical purposes.
+     * Use cases:
+     * - Displaying total user count on admin dashboards
+     * - Tracking user growth over time
+     * - Implementing pagination for user lists
+     * @return The total number of users in the database
+     * @throws Exception If there's an error during the database operation
+     */
+    int getTotalCount() throws Exception;
+
+    /**
+     * Searches for users based on a keyword.
+     * Purpose: To find users whose details match a given search term.
+     * Use cases:
+     * - Implementing a search functionality in user management interfaces
+     * - Finding users by partial username, email, or other profile information
+     * - Auto-suggesting users in various parts of the application
+     * @param keyword The search term to match against user details
+     * @return A List of User objects that match the search criteria
+     * @throws Exception If there's an error during the database operation
+     */
+    List<User> searchByKeyword(String keyword) throws Exception;
 }

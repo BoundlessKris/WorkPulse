@@ -7,25 +7,29 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<form action="Registration" method="post" class="login-form">
+	<form action="UserRegistrationServlet" method="post" class="login-form">
 		<h2>Registration</h2>
 		<div class="input-box">
-			First Name: <input type="text" placeholder="First Name"
-				name="first_name"><br>
-		</div>
-		<div class="input-box">
-			Last Name: <input type="text" placeholder="Last Name"
-				name="last_name"><br>
+			Username: <input type="text" placeholder="UserName"
+				name="username"><br>
 		</div>
 		<div class="input-box">
 			Email: <input type="email" placeholder="Email" name="email"><br>
 		</div>
 		<div class="input-box">
-			Username: <input type="text" placeholder="Username" name="username"><br>
+			Password : <input type="password" placeholder="Password" name="password"><br>
 		</div>
 		<div class="input-box">
-			Password : <input type="password" placeholder="Password"
-				name="password"><br>
+			Confirm-Password : <input type="password" placeholder="Confirm-Password"
+				name="confirmPassword"><br>
+		</div>
+		<div class="input-box">
+			UserType :
+			<select name="userType" class="select">
+				<option value="" disabled selected>Select Role</option>
+				<option value="buyer">buyer</option>
+				<option value="seller">seller</option>
+			</select>
 		</div>
 		<div class="input-box">
 			<input type="submit" value="Register" class="login-btn">

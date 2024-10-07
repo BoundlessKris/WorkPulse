@@ -54,3 +54,19 @@ CREATE INDEX idx_buyer_requests_expires_at ON buyer_requests(expires_at);
 CREATE INDEX idx_files_user_id ON files(user_id);
 CREATE INDEX idx_files_gig_id ON files(gig_id);
 CREATE INDEX idx_files_file_type ON files(file_type);
+
+
+-- Indexes for optimization
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_gigs_seller_id ON gigs(seller_id);
+CREATE INDEX idx_gig_prices_gig_id ON gig_prices(gig_id);
+CREATE INDEX idx_orders_buyer_id ON orders(buyer_id);
+CREATE INDEX idx_orders_seller_id ON orders(seller_id);
+CREATE INDEX idx_reviews_order_id ON reviews(order_id);
+CREATE INDEX idx_messages_sender_id ON messages(sender_id);
+CREATE INDEX idx_messages_receiver_id ON messages(receiver_id);
+CREATE INDEX idx_notifications_user_id ON notifications(user_id);
+CREATE INDEX idx_buyer_requests_buyer_id ON buyer_requests(buyer_id);
+CREATE INDEX idx_files_user_id ON files(user_id);
+CREATE INDEX idx_files_gig_id ON files(gig_id);
