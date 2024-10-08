@@ -11,6 +11,7 @@ public interface GigDao {
      * Use cases:
      * - Seller creating a new service offering
      * - Admin adding a gig on behalf of a seller
+     *
      * @param gig The Gig object containing all the gig details
      * @return The created Gig object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -23,6 +24,7 @@ public interface GigDao {
      * Use cases:
      * - Displaying gig details page
      * - Editing an existing gig
+     *
      * @param id The unique identifier of the gig
      * @return The Gig object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -35,6 +37,7 @@ public interface GigDao {
      * Use cases:
      * - Displaying a list of all gigs on the homepage
      * - Admin viewing all gigs in the system
+     *
      * @return A List of all Gig objects in the database
      * @throws Exception If there's an error during the database operation
      */
@@ -46,6 +49,7 @@ public interface GigDao {
      * Use cases:
      * - Seller editing their gig listing
      * - Admin updating gig details
+     *
      * @param gig The Gig object with updated information
      * @return The updated Gig object
      * @throws Exception If there's an error during the database operation
@@ -58,6 +62,7 @@ public interface GigDao {
      * Use cases:
      * - Seller removing their gig
      * - Admin deleting a non-compliant gig
+     *
      * @param id The unique identifier of the gig to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -69,6 +74,7 @@ public interface GigDao {
      * Use cases:
      * - Displaying a seller's profile with all their gigs
      * - Seller viewing all their active listings
+     *
      * @param sellerId The unique identifier of the seller
      * @return A List of Gig objects belonging to the specified seller
      * @throws Exception If there's an error during the database operation
@@ -81,6 +87,7 @@ public interface GigDao {
      * Use cases:
      * - Displaying gigs when a user browses a particular category
      * - Filtering gigs by category in search results
+     *
      * @param categoryId The unique identifier of the category
      * @return A List of Gig objects in the specified category
      * @throws Exception If there's an error during the database operation
@@ -93,6 +100,7 @@ public interface GigDao {
      * Use cases:
      * - User searching for gigs using the search bar
      * - Implementing search functionality in the application
+     *
      * @param keywords The search terms entered by the user
      * @return A List of Gig objects that match the search criteria
      * @throws Exception If there's an error during the database operation
@@ -105,6 +113,7 @@ public interface GigDao {
      * Use cases:
      * - Displaying trending or popular gigs on the homepage
      * - Showing recommended gigs to users
+     *
      * @param limit The number of top gigs to retrieve
      * @return A List of the most popular Gig objects
      * @throws Exception If there's an error during the database operation
@@ -117,6 +126,7 @@ public interface GigDao {
      * Use cases:
      * - Filtering gigs by price in search results
      * - Displaying gigs that fit a user's budget
+     *
      * @param minPrice The minimum price of the gig
      * @param maxPrice The maximum price of the gig
      * @return A List of Gig objects within the specified price range

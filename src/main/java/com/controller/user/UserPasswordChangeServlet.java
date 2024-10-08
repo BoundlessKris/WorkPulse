@@ -4,8 +4,6 @@ import com.dao.impl.UserDaoImpl;
 import com.model.User;
 import com.service.impl.UserServiceImpl;
 import com.service.interfaces.UserService;
-
-import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,18 +11,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import java.io.IOException;
+
 /**
  * Servlet implementation class UserPasswordChangeServlet
  */
 @WebServlet("/user/changePassword")
 public class UserPasswordChangeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private UserService userService;
-
-	@Override
-	public void init() throws ServletException {
-		userService = new UserServiceImpl(new UserDaoImpl());
-	}
+    private static final long serialVersionUID = 1L;
+    private UserService userService;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,48 +29,53 @@ public class UserPasswordChangeServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if (session == null || session.getAttribute("user") == null) {
-			response.sendRedirect(request.getContextPath() + "/user/login");
-			return;
-		}
+    @Override
+    public void init() throws ServletException {
+        userService = new UserServiceImpl(new UserDaoImpl());
+    }
 
-		request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/user/login");
+            return;
+        }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if (session == null || session.getAttribute("user") == null) {
-			response.sendRedirect(request.getContextPath() + "/user/login");
-			return;
-		}
+        request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
+    }
 
-		User user = (User) session.getAttribute("user");
-		String currentPassword = request.getParameter("currentPassword");
-		String newPassword = request.getParameter("newPassword");
-		String confirmPassword = request.getParameter("confirmPassword");
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/user/login");
+            return;
+        }
 
-		if (!newPassword.equals(confirmPassword)) {
-			request.setAttribute("error", "New passwords do not match");
-			request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
-			return;
-		}
+        User user = (User) session.getAttribute("user");
+        String currentPassword = request.getParameter("currentPassword");
+        String newPassword = request.getParameter("newPassword");
+        String confirmPassword = request.getParameter("confirmPassword");
 
-		try {
-			userService.changePassword(user.getUserId(), currentPassword, newPassword);
-			request.setAttribute("message", "Password changed successfully");
-			request.getRequestDispatcher("/WEB-INF/jsp/user/profile.jsp").forward(request, response);
-		} catch (Exception e) {
-			request.setAttribute("error", "An error occurred: " + e.getMessage());
-			request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
-		}
-	}
+        if (!newPassword.equals(confirmPassword)) {
+            request.setAttribute("error", "New passwords do not match");
+            request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
+            return;
+        }
+
+        try {
+            userService.changePassword(user.getUserId(), currentPassword, newPassword);
+            request.setAttribute("message", "Password changed successfully");
+            request.getRequestDispatcher("/WEB-INF/jsp/user/profile.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("error", "An error occurred: " + e.getMessage());
+            request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
+        }
+    }
 
 }

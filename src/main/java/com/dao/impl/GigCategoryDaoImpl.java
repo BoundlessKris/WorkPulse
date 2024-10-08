@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.interfaces.GigCategoryDao;
 import com.model.GigCategory;
 import com.util.DatabaseConnection;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -4,7 +4,6 @@ import com.dao.interfaces.GigPriceDao;
 import com.model.GigPrice;
 import com.util.DatabaseConnection;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +126,6 @@ public class GigPriceDaoImpl implements GigPriceDao {
         }
         return null;
     }
-
 
 
     @Override

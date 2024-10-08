@@ -1,9 +1,11 @@
 package com.util;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import static org.junit.Assert.*;
 
 public class DatabaseConnectionTest {
 

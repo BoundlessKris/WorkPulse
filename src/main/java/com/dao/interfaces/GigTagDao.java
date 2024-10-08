@@ -2,6 +2,7 @@ package com.dao.interfaces;
 
 import com.model.Gig;
 import com.model.Tag;
+
 import java.util.List;
 
 public interface GigTagDao {
@@ -11,6 +12,7 @@ public interface GigTagDao {
      * Use cases:
      * - Seller adding tags to their gig during creation or editing
      * - Admin tagging gigs for better categorization
+     *
      * @param gigId The ID of the gig
      * @param tagId The ID of the tag
      * @throws Exception If there's an error during the database operation
@@ -23,6 +25,7 @@ public interface GigTagDao {
      * Use cases:
      * - Seller removing a tag from their gig
      * - Admin adjusting gig tags
+     *
      * @param gigId The ID of the gig
      * @param tagId The ID of the tag
      * @throws Exception If there's an error during the database operation
@@ -35,6 +38,7 @@ public interface GigTagDao {
      * Use cases:
      * - Displaying tags on a gig's detail page
      * - Populating tag fields when editing a gig
+     *
      * @param gigId The ID of the gig
      * @return A List of Tag objects associated with the specified gig
      * @throws Exception If there's an error during the database operation
@@ -47,6 +51,7 @@ public interface GigTagDao {
      * Use cases:
      * - Displaying gigs when a user clicks on a tag
      * - Generating a list of gigs for a tag-based search
+     *
      * @param tagId The ID of the tag
      * @return A List of Gig objects associated with the specified tag
      * @throws Exception If there's an error during the database operation
@@ -59,6 +64,7 @@ public interface GigTagDao {
      * Use cases:
      * - Validating tag selections during gig editing
      * - Filtering gigs based on tag presence
+     *
      * @param gigId The ID of the gig
      * @param tagId The ID of the tag
      * @return true if the gig is associated with the tag, false otherwise
@@ -72,6 +78,7 @@ public interface GigTagDao {
      * Use cases:
      * - Enforcing a maximum number of tags per gig
      * - Displaying tag count on gig listings
+     *
      * @param gigId The ID of the gig
      * @return The number of tags associated with the specified gig
      * @throws Exception If there's an error during the database operation
@@ -84,6 +91,7 @@ public interface GigTagDao {
      * Use cases:
      * - Recommending similar gigs to users
      * - Implementing a "related gigs" feature
+     *
      * @param gigId The ID of the gig to find similar gigs for
      * @param limit The maximum number of similar gigs to return
      * @return A List of Gig objects that share tags with the specified gig
@@ -97,7 +105,8 @@ public interface GigTagDao {
      * Use cases:
      * - Bulk updating of gig tags during editing
      * - Syncing gig tags with an external system
-     * @param gigId The ID of the gig
+     *
+     * @param gigId  The ID of the gig
      * @param tagIds A List of tag IDs to associate with the gig
      * @throws Exception If there's an error during the database operation
      */
@@ -109,6 +118,7 @@ public interface GigTagDao {
      * Use cases:
      * - Displaying trending tags on the homepage
      * - Suggesting popular tags during gig creation
+     *
      * @param limit The maximum number of top tags to retrieve
      * @return A List of Tag objects sorted by usage frequency
      * @throws Exception If there's an error during the database operation

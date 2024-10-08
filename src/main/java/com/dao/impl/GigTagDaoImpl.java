@@ -4,7 +4,11 @@ import com.dao.interfaces.GigTagDao;
 import com.model.Gig;
 import com.model.Tag;
 import com.util.DatabaseConnection;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

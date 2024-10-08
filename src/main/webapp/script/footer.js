@@ -1,5 +1,5 @@
 function footer() {
-  return `<footer>
+    return `<footer>
   <div>
     <ul>
       <li><h4>Categories</h4></li>
@@ -76,7 +76,7 @@ function footer() {
 <div id="lowerFooter">
   <!-- logo -->
   <div id="footerLogo">
-  <img src="assets/work.png" alt="Your Logo" width="200" height="30"/>
+  <img src="assets/landing page imgs/work.png" alt="Your Logo" width="200" height="30"/>
 
     <div>
       <p>©copyright</p>
@@ -117,4 +117,4 @@ function footer() {
 </div>`;
 }
 
-export { footer };
+export {footer};

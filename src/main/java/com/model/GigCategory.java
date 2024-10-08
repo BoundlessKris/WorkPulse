@@ -61,10 +61,12 @@ public class GigCategory {
     public int hashCode() {
         return Objects.hash(categoryId, name, parentCategoryId);
     }
+
     // Helper method to check if this is a top-level category
     public boolean isTopLevelCategory() {
         return parentCategoryId == null;
     }
+
     // Helper method to check if this category is a child of another category
     public boolean isChildOf(int parentId) {
         return parentCategoryId != null && parentCategoryId == parentId;

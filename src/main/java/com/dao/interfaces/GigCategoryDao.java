@@ -1,6 +1,7 @@
 package com.dao.interfaces;
 
 import com.model.GigCategory;
+
 import java.util.List;
 
 public interface GigCategoryDao {
@@ -10,6 +11,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Admin creating a new category for gigs
      * - Expanding the service offerings into new areas
+     *
      * @param category The GigCategory object containing the category details
      * @return The created GigCategory object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -22,6 +24,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Displaying category information on the website
      * - Retrieving category details for gig creation or editing
+     *
      * @param id The unique identifier of the gig category
      * @return The GigCategory object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -34,6 +37,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Populating category dropdown menus
      * - Displaying a directory of all service categories
+     *
      * @return A List of all GigCategory objects in the database
      * @throws Exception If there's an error during the database operation
      */
@@ -45,6 +49,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Admin editing category name or description
      * - Updating category hierarchy
+     *
      * @param category The GigCategory object with updated information
      * @return The updated GigCategory object
      * @throws Exception If there's an error during the database operation
@@ -57,6 +62,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Admin removing an obsolete or unused category
      * - Consolidating categories
+     *
      * @param id The unique identifier of the category to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -68,6 +74,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Displaying subcategories when a user browses a main category
      * - Building a hierarchical category navigation structure
+     *
      * @param parentId The ID of the parent category
      * @return A List of GigCategory objects that are direct subcategories of the specified parent
      * @throws Exception If there's an error during the database operation
@@ -80,6 +87,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Displaying main category options in the primary navigation
      * - Showing top-level categories on the homepage
+     *
      * @return A List of GigCategory objects that are top-level categories
      * @throws Exception If there's an error during the database operation
      */
@@ -91,6 +99,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Building breadcrumb navigation
      * - Displaying the category hierarchy
+     *
      * @param categoryId The ID of the category whose parent is to be found
      * @return The GigCategory object representing the parent category, or null if it's a top-level category
      * @throws Exception If there's an error during the database operation
@@ -103,6 +112,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Displaying the number of available gigs in each category
      * - Identifying popular or underutilized categories
+     *
      * @param categoryId The ID of the category
      * @return The number of gigs in the specified category
      * @throws Exception If there's an error during the database operation
@@ -115,6 +125,7 @@ public interface GigCategoryDao {
      * Use cases:
      * - Preventing deletion of categories that contain gigs
      * - Identifying empty categories for potential cleanup
+     *
      * @param categoryId The ID of the category
      * @return true if the category contains gigs, false otherwise
      * @throws Exception If there's an error during the database operation

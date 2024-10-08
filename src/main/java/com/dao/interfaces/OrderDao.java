@@ -1,8 +1,9 @@
 package com.dao.interfaces;
 
 import com.model.Order;
-import java.util.List;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 public interface OrderDao {
     /**
@@ -11,6 +12,7 @@ public interface OrderDao {
      * Use cases:
      * - Buyer purchasing a gig
      * - System creating an order after successful payment
+     *
      * @param order The Order object containing the order details
      * @return The created Order object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -23,6 +25,7 @@ public interface OrderDao {
      * Use cases:
      * - Displaying order details to buyer or seller
      * - Processing order status updates
+     *
      * @param id The unique identifier of the order
      * @return The Order object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -35,6 +38,7 @@ public interface OrderDao {
      * Use cases:
      * - Displaying order history to a buyer
      * - Generating buyer purchase reports
+     *
      * @param buyerId The ID of the buyer
      * @return A List of Order objects associated with the specified buyer
      * @throws Exception If there's an error during the database operation
@@ -47,6 +51,7 @@ public interface OrderDao {
      * Use cases:
      * - Displaying incoming orders to a seller
      * - Generating seller earnings reports
+     *
      * @param sellerId The ID of the seller
      * @return A List of Order objects associated with the specified seller
      * @throws Exception If there's an error during the database operation
@@ -59,6 +64,7 @@ public interface OrderDao {
      * Use cases:
      * - Updating order status (e.g., from 'in progress' to 'completed')
      * - Adding delivery details to an order
+     *
      * @param order The Order object with updated information
      * @return The updated Order object
      * @throws Exception If there's an error during the database operation
@@ -73,6 +79,7 @@ public interface OrderDao {
      * Use cases:
      * - Displaying all pending orders to a seller
      * - Generating reports on completed orders
+     *
      * @param status The status of the orders to retrieve
      * @return A List of Order objects with the specified status
      * @throws Exception If there's an error during the database operation
@@ -85,8 +92,9 @@ public interface OrderDao {
      * Use cases:
      * - Generating periodic sales reports
      * - Analyzing order trends over time
+     *
      * @param startDate The start date of the range
-     * @param endDate The end date of the range
+     * @param endDate   The end date of the range
      * @return A List of Order objects created within the specified date range
      * @throws Exception If there's an error during the database operation
      */
@@ -98,6 +106,7 @@ public interface OrderDao {
      * Use cases:
      * - Displaying order count on gig listings
      * - Calculating gig popularity
+     *
      * @param gigId The ID of the gig
      * @return The number of orders for the specified gig
      * @throws Exception If there's an error during the database operation
@@ -110,9 +119,10 @@ public interface OrderDao {
      * Use cases:
      * - Generating seller earnings reports
      * - Calculating seller payouts
-     * @param sellerId The ID of the seller
+     *
+     * @param sellerId  The ID of the seller
      * @param startDate The start date of the range
-     * @param endDate The end date of the range
+     * @param endDate   The end date of the range
      * @return The total earnings for the seller within the specified date range
      * @throws Exception If there's an error during the database operation
      */

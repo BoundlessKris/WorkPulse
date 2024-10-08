@@ -4,17 +4,17 @@ import java.sql.Connection;
 
 public class Program {
     public static void main(String[] args) {
-        try{
+        try {
             Connection conn = DatabaseConnection.getConnection();
             if (conn != null && !conn.isClosed()) {
                 System.out.println("Connection is Success");
-            }else{
+            } else {
                 System.out.println("Connection is Failed");
             }
             conn.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Connection is failed due to: "+ e.getMessage());
+            System.out.println("Connection is failed due to: " + e.getMessage());
         }
     }
 }

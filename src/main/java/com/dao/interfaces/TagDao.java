@@ -1,6 +1,7 @@
 package com.dao.interfaces;
 
 import com.model.Tag;
+
 import java.util.List;
 
 public interface TagDao {
@@ -10,6 +11,7 @@ public interface TagDao {
      * Use cases:
      * - Seller adding a new tag when creating or editing a gig
      * - Admin creating predefined tags for the system
+     *
      * @param tag The Tag object containing the tag details
      * @return The created Tag object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -22,6 +24,7 @@ public interface TagDao {
      * Use cases:
      * - Displaying tag information on gig pages
      * - Retrieving tag details for editing purposes
+     *
      * @param id The unique identifier of the tag
      * @return The Tag object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -34,6 +37,7 @@ public interface TagDao {
      * Use cases:
      * - Populating tag selection interfaces
      * - Displaying a cloud or list of all available tags
+     *
      * @return A List of all Tag objects in the database
      * @throws Exception If there's an error during the database operation
      */
@@ -45,6 +49,7 @@ public interface TagDao {
      * Use cases:
      * - Admin editing tag name or description
      * - Correcting misspelled tags
+     *
      * @param tag The Tag object with updated information
      * @return The updated Tag object
      * @throws Exception If there's an error during the database operation
@@ -57,6 +62,7 @@ public interface TagDao {
      * Use cases:
      * - Admin removing inappropriate or obsolete tags
      * - Cleaning up unused tags
+     *
      * @param id The unique identifier of the tag to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -68,6 +74,7 @@ public interface TagDao {
      * Use cases:
      * - Checking if a tag already exists when a user enters a new tag
      * - Finding tags for autocomplete functionality
+     *
      * @param name The name of the tag to search for
      * @return The Tag object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -80,6 +87,7 @@ public interface TagDao {
      * Use cases:
      * - Displaying tags on a gig's detail page
      * - Allowing users to click on tags to find similar gigs
+     *
      * @param gigId The ID of the gig
      * @return A List of Tag objects associated with the specified gig
      * @throws Exception If there's an error during the database operation
@@ -92,6 +100,7 @@ public interface TagDao {
      * Use cases:
      * - Displaying trending or popular tags on the homepage
      * - Suggesting popular tags when sellers are creating gigs
+     *
      * @param limit The number of top tags to retrieve
      * @return A List of the most frequently used Tag objects
      * @throws Exception If there's an error during the database operation
@@ -104,6 +113,7 @@ public interface TagDao {
      * Use cases:
      * - Implementing tag search or autocomplete functionality
      * - Helping users find relevant tags when creating or editing gigs
+     *
      * @param partialName The partial name or search term for the tag
      * @return A List of Tag objects that match the search criteria
      * @throws Exception If there's an error during the database operation
@@ -116,6 +126,7 @@ public interface TagDao {
      * Use cases:
      * - Displaying the popularity of tags
      * - Identifying rarely used tags for potential cleanup
+     *
      * @param tagId The ID of the tag
      * @return The number of gigs associated with the specified tag
      * @throws Exception If there's an error during the database operation

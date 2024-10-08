@@ -1,6 +1,7 @@
 package com.dao.interfaces;
 
 import com.model.File;
+
 import java.util.List;
 
 public interface FileDao {
@@ -11,6 +12,7 @@ public interface FileDao {
      * - Uploading a profile picture
      * - Adding images or documents to a gig
      * - Attaching files to messages or orders
+     *
      * @param file The File object containing the file metadata
      * @return The created File object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -23,6 +25,7 @@ public interface FileDao {
      * Use cases:
      * - Displaying file information
      * - Retrieving file path for download
+     *
      * @param id The unique identifier of the file
      * @return The File object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -35,6 +38,7 @@ public interface FileDao {
      * Use cases:
      * - Displaying a user's uploaded files
      * - Managing user's file storage
+     *
      * @param userId The ID of the user
      * @return A List of File objects associated with the specified user
      * @throws Exception If there's an error during the database operation
@@ -47,6 +51,7 @@ public interface FileDao {
      * Use cases:
      * - Displaying images or documents attached to a gig
      * - Managing gig-related files
+     *
      * @param gigId The ID of the gig
      * @return A List of File objects associated with the specified gig
      * @throws Exception If there's an error during the database operation
@@ -59,6 +64,7 @@ public interface FileDao {
      * Use cases:
      * - Updating file description
      * - Changing file associations (e.g., moving a file from one gig to another)
+     *
      * @param file The File object with updated information
      * @return The updated File object
      * @throws Exception If there's an error during the database operation
@@ -71,6 +77,7 @@ public interface FileDao {
      * Use cases:
      * - User deleting an uploaded file
      * - Removing files associated with deleted gigs or users
+     *
      * @param id The unique identifier of the file to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -82,6 +89,7 @@ public interface FileDao {
      * Use cases:
      * - Filtering files by type in a file manager
      * - Retrieving all images for a gallery
+     *
      * @param fileType The type of files to retrieve
      * @return A List of File objects of the specified type
      * @throws Exception If there's an error during the database operation
@@ -94,6 +102,7 @@ public interface FileDao {
      * Use cases:
      * - Enforcing storage limits
      * - Displaying file count in user profiles
+     *
      * @param userId The ID of the user
      * @return The number of files associated with the specified user
      * @throws Exception If there's an error during the database operation
@@ -106,8 +115,9 @@ public interface FileDao {
      * Use cases:
      * - Generating reports on recent uploads
      * - Filtering files by upload date
+     *
      * @param startDate The start date of the range
-     * @param endDate The end date of the range
+     * @param endDate   The end date of the range
      * @return A List of File objects uploaded within the specified date range
      * @throws Exception If there's an error during the database operation
      */
@@ -119,6 +129,7 @@ public interface FileDao {
      * Use cases:
      * - Implementing a search function in a file manager
      * - Finding specific files by name or description
+     *
      * @param searchTerm The search term to look for in filenames or descriptions
      * @return A List of File objects that match the search criteria
      * @throws Exception If there's an error during the database operation

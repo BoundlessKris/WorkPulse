@@ -1,8 +1,8 @@
 package com.dao.interfaces;
 
 import com.model.Message;
+
 import java.util.List;
-import java.time.LocalDateTime;
 
 public interface MessageDao {
     /**
@@ -11,6 +11,7 @@ public interface MessageDao {
      * Use cases:
      * - User sending a message to another user
      * - System generating an automatic message
+     *
      * @param message The Message object containing the message details
      * @return The created Message object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -23,6 +24,7 @@ public interface MessageDao {
      * Use cases:
      * - Displaying a particular message
      * - Fetching message details for moderation
+     *
      * @param id The unique identifier of the message
      * @return The Message object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -35,6 +37,7 @@ public interface MessageDao {
      * Use cases:
      * - Displaying sent messages in a user's inbox
      * - Auditing user communication
+     *
      * @param senderId The ID of the sender
      * @return A List of Message objects sent by the specified user
      * @throws Exception If there's an error during the database operation
@@ -47,6 +50,7 @@ public interface MessageDao {
      * Use cases:
      * - Displaying received messages in a user's inbox
      * - Checking for new messages
+     *
      * @param receiverId The ID of the receiver
      * @return A List of Message objects received by the specified user
      * @throws Exception If there's an error during the database operation
@@ -59,6 +63,7 @@ public interface MessageDao {
      * Use cases:
      * - Displaying a chat thread between a buyer and a seller
      * - Loading previous messages when opening a conversation
+     *
      * @param user1Id The ID of the first user
      * @param user2Id The ID of the second user
      * @return A List of Message objects exchanged between the two users, sorted by timestamp
@@ -72,6 +77,7 @@ public interface MessageDao {
      * Use cases:
      * - Marking a message as read
      * - Editing a message (if allowed)
+     *
      * @param message The Message object with updated information
      * @return The updated Message object
      * @throws Exception If there's an error during the database operation
@@ -84,6 +90,7 @@ public interface MessageDao {
      * Use cases:
      * - User deleting a message from their inbox
      * - Admin removing inappropriate messages
+     *
      * @param id The unique identifier of the message to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -95,6 +102,7 @@ public interface MessageDao {
      * Use cases:
      * - Marking messages as read when opened by the receiver
      * - Updating message status in real-time chat
+     *
      * @param messageId The ID of the message to mark as read
      * @throws Exception If there's an error during the database operation
      */
@@ -106,6 +114,7 @@ public interface MessageDao {
      * Use cases:
      * - Displaying unread message count in the UI
      * - Sending notifications about new messages
+     *
      * @param userId The ID of the user
      * @return The number of unread messages for the specified user
      * @throws Exception If there's an error during the database operation
@@ -118,8 +127,9 @@ public interface MessageDao {
      * Use cases:
      * - Displaying recent messages in a user's dashboard
      * - Implementing a "recent conversations" feature
+     *
      * @param userId The ID of the user
-     * @param limit The maximum number of recent messages to retrieve
+     * @param limit  The maximum number of recent messages to retrieve
      * @return A List of the most recent Message objects for the specified user
      * @throws Exception If there's an error during the database operation
      */
@@ -131,7 +141,8 @@ public interface MessageDao {
      * Use cases:
      * - Implementing a search function in the messaging system
      * - Finding specific information in message history
-     * @param userId The ID of the user performing the search
+     *
+     * @param userId   The ID of the user performing the search
      * @param keywords The search terms to look for in messages
      * @return A List of Message objects that contain the specified keywords
      * @throws Exception If there's an error during the database operation

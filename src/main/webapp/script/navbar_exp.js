@@ -1,7 +1,7 @@
-function navbar_imp () {
+function navbar_imp() {
     return `
     <div id="navbar">
-            <img class="logo" src="assets/work.png" alt="logo">
+            <img class="logo" src="assets/landing page imgs/work.png" alt="logo">
 
         <input type="text" id="query" placeholder="What service are you looking for today">
         <svg

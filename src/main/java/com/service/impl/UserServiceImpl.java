@@ -3,10 +3,11 @@ package com.service.impl;
 import com.dao.interfaces.UserDao;
 import com.model.User;
 import com.service.interfaces.UserService;
-import java.util.List;
+
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.List;
 
 public class UserServiceImpl implements UserService {
     private UserDao userDao;

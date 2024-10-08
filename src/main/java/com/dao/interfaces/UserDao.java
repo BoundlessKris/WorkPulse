@@ -1,4 +1,5 @@
 package com.dao.interfaces;
+
 import com.model.User;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public interface UserDao {
      * Use cases:
      * - User registration process
      * - Admin creating a new user account
+     *
      * @param user The User object containing the user's information
      * @return The created User object with the generated ID
      * @throws Exception If there's an error during the database operation
@@ -22,6 +24,7 @@ public interface UserDao {
      * Use cases:
      * - Displaying user profile information
      * - Verifying user existence before performing operations
+     *
      * @param id The unique identifier of the user
      * @return The User object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -34,6 +37,7 @@ public interface UserDao {
      * Use cases:
      * - Displaying a list of users in an admin panel
      * - Generating site-wide statistics
+     *
      * @return A List of all User objects in the database
      * @throws Exception If there's an error during the database operation
      */
@@ -45,6 +49,7 @@ public interface UserDao {
      * Use cases:
      * - User editing their own profile
      * - Admin modifying a user's details
+     *
      * @param user The User object with updated information
      * @return The updated User object
      * @throws Exception If there's an error during the database operation
@@ -57,6 +62,7 @@ public interface UserDao {
      * Use cases:
      * - User requesting account deletion
      * - Admin removing a problematic user
+     *
      * @param id The unique identifier of the user to be deleted
      * @throws Exception If there's an error during the database operation
      */
@@ -68,6 +74,7 @@ public interface UserDao {
      * Use cases:
      * - User login process
      * - Checking username availability during registration
+     *
      * @param username The username to search for
      * @return The User object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -80,6 +87,7 @@ public interface UserDao {
      * Use cases:
      * - Password reset functionality
      * - Email verification process
+     *
      * @param email The email address to search for
      * @return The User object if found, null otherwise
      * @throws Exception If there's an error during the database operation
@@ -92,6 +100,7 @@ public interface UserDao {
      * Use cases:
      * - Displaying top-rated sellers
      * - Filtering sellers by their experience level
+     *
      * @param sellerLevel The seller level to filter by
      * @return A List of User objects with the specified seller level
      * @throws Exception If there's an error during the database operation
@@ -104,6 +113,7 @@ public interface UserDao {
      * Use cases:
      * - Real-time username availability check during registration
      * - Suggesting alternative usernames if the chosen one is taken
+     *
      * @param username The username to check
      * @return true if the username is available, false otherwise
      * @throws Exception If there's an error during the database operation
@@ -116,6 +126,7 @@ public interface UserDao {
      * Use cases:
      * - Ensuring email uniqueness during user registration
      * - Preventing creation of duplicate accounts
+     *
      * @param email The email address to check
      * @return true if the email is available, false otherwise
      * @throws Exception If there's an error during the database operation
@@ -130,6 +141,7 @@ public interface UserDao {
      * - Filtering users by their role (buyer, seller, admin)
      * - Generating role-specific reports or statistics
      * - Implementing role-based features or notifications
+     *
      * @param userType The type of user to retrieve (e.g., "buyer", "seller", "admin")
      * @return A List of User objects matching the specified user type
      * @throws Exception If there's an error during the database operation
@@ -143,6 +155,7 @@ public interface UserDao {
      * - Displaying total user count on admin dashboards
      * - Tracking user growth over time
      * - Implementing pagination for user lists
+     *
      * @return The total number of users in the database
      * @throws Exception If there's an error during the database operation
      */
@@ -155,6 +168,7 @@ public interface UserDao {
      * - Implementing a search functionality in user management interfaces
      * - Finding users by partial username, email, or other profile information
      * - Auto-suggesting users in various parts of the application
+     *
      * @param keyword The search term to match against user details
      * @return A List of User objects that match the search criteria
      * @throws Exception If there's an error during the database operation
