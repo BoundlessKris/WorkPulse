@@ -1,4 +1,4 @@
-function navbar_imp () {
+function navbar_imp() {
     return `
     <div id="navbar">
             <img class="logo" src="assets/landing page imgs/work.png" alt="logo">
