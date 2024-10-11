@@ -1,5 +1,7 @@
 package com.controller.gig;
 
+import com.dao.impl.OrderDaoImpl;
+import com.dao.impl.ReviewDaoImpl;
 import com.model.Gig;
 import com.service.interfaces.GigService;
 import com.service.impl.GigServiceImpl;
@@ -19,7 +21,10 @@ public class GigListServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        gigService = new GigServiceImpl(new GigDaoImpl());
+        GigDaoImpl gigDao = new GigDaoImpl();
+        ReviewDaoImpl reviewDao = new ReviewDaoImpl();
+        OrderDaoImpl orderDao = new OrderDaoImpl();
+        gigService = new GigServiceImpl(gigDao, reviewDao, orderDao);
     }
 
     @Override

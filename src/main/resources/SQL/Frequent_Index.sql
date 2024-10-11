@@ -70,3 +70,6 @@ CREATE INDEX idx_notifications_user_id ON notifications(user_id);
 CREATE INDEX idx_buyer_requests_buyer_id ON buyer_requests(buyer_id);
 CREATE INDEX idx_files_user_id ON files(user_id);
 CREATE INDEX idx_files_gig_id ON files(gig_id);
+
+
+CREATE INDEX idx_total_amount ON orders (total_amount);

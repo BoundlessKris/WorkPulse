@@ -14,4 +14,8 @@ public interface GigService {
     List<Gig> getGigsByCategory(int categoryId) throws Exception;
     double getAverageRatingForGig(int gigId) throws Exception;
     int getOrderCountForGig(int gigId) throws Exception;
+    List<Gig> getFeaturedGigs(int limit) throws Exception;
+    List<Gig> getRecentGigs(int limit) throws Exception;
+    List<Gig> getTopRatedGigs(int limit) throws Exception;
+    boolean isGigOwnedBySeller(int gigId, int sellerId) throws Exception;
 }

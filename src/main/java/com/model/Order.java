@@ -12,19 +12,21 @@ public class Order {
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime completedAt;
+    private double totalAmount;
 
     public Order() {
     }
 
-    public Order(int orderId, int gigId, int buyerId, int sellerId, int priceId, String status, LocalDateTime createdAt, LocalDateTime completedAt) {
+    public Order(int orderId, int gigId, int buyerId, int sellerId, LocalDateTime createdAt, int priceId, String status, LocalDateTime completedAt, double totalAmount) {
         this.orderId = orderId;
         this.gigId = gigId;
         this.buyerId = buyerId;
         this.sellerId = sellerId;
+        this.createdAt = createdAt;
         this.priceId = priceId;
         this.status = status;
-        this.createdAt = createdAt;
         this.completedAt = completedAt;
+        this.totalAmount = totalAmount;
     }
 
     public int getOrderId() {
@@ -91,6 +93,14 @@ public class Order {
         this.completedAt = completedAt;
     }
 
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -102,6 +112,7 @@ public class Order {
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", completedAt=" + completedAt +
+                ", totalAmount=" + totalAmount +
                 '}';
     }
 
@@ -110,11 +121,11 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderId == order.orderId && gigId == order.gigId && buyerId == order.buyerId && sellerId == order.sellerId && priceId == order.priceId && Objects.equals(status, order.status) && Objects.equals(createdAt, order.createdAt) && Objects.equals(completedAt, order.completedAt);
+        return orderId == order.orderId && gigId == order.gigId && buyerId == order.buyerId && sellerId == order.sellerId && priceId == order.priceId && Double.compare(totalAmount, order.totalAmount) == 0 && Objects.equals(status, order.status) && Objects.equals(createdAt, order.createdAt) && Objects.equals(completedAt, order.completedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, gigId, buyerId, sellerId, priceId, status, createdAt, completedAt);
+        return Objects.hash(orderId, gigId, buyerId, sellerId, priceId, status, createdAt, completedAt, totalAmount);
     }
 }

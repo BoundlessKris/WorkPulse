@@ -175,6 +175,39 @@ public class ReviewDaoImpl implements ReviewDao {
         }
         return reviews;
     }
+    @Override
+    public List<Review> findTopRatedReviews(int limit) throws Exception {
+        List<Review> reviews = new ArrayList<>();
+        String sql = "SELECT * FROM reviews ORDER BY rating DESC LIMIT ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, limit);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    reviews.add(extractReviewFromResultSet(rs));
+                }
+            }
+        }
+        return reviews;
+    }
+
+    @Override
+    public boolean hasUserReviewedGig(int userId, int gigId) throws Exception {
+        String sql = "SELECT COUNT(*) FROM reviews r " +
+                "JOIN orders o ON r.order_id = o.order_id " +
+                "WHERE o.buyer_id = ? AND o.gig_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            ps.setInt(2, gigId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
 
     private Review extractReviewFromResultSet(ResultSet rs) throws SQLException {
         Review review = new Review();

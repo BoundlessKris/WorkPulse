@@ -200,4 +200,42 @@ public class GigDaoImpl implements GigDao {
         gig.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
         return gig;
     }
+    @Override
+    public List<Gig> findTopRated(int limit) throws Exception {
+        List<Gig> gigs = new ArrayList<>();
+        String sql = "SELECT g.*, AVG(r.rating) as avg_rating " +
+                "FROM gigs g " +
+                "LEFT JOIN orders o ON g.gig_id = o.gig_id " +
+                "LEFT JOIN reviews r ON o.order_id = r.order_id " +
+                "GROUP BY g.gig_id " +
+                "ORDER BY avg_rating DESC NULLS LAST " +
+                "LIMIT ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, limit);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    gigs.add(extractGigFromResultSet(rs));
+                }
+            }
+        }
+        return gigs;
+    }
+
+    @Override
+    public List<Gig> findMostRecent(int limit) throws Exception {
+        List<Gig> gigs = new ArrayList<>();
+        String sql = "SELECT * FROM gigs ORDER BY created_at DESC LIMIT ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, limit);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    gigs.add(extractGigFromResultSet(rs));
+                }
+            }
+        }
+        return gigs;
+    }
+
 }

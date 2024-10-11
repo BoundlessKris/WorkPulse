@@ -12,7 +12,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public Order create(Order order) throws Exception {
-        String sql = "INSERT INTO orders (gig_id, buyer_id, seller_id, price_id, status, created_at) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO orders (gig_id, buyer_id, seller_id, price_id, status, created_at, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -22,6 +22,8 @@ public class OrderDaoImpl implements OrderDao {
             ps.setInt(4, order.getPriceId());
             ps.setString(5, order.getStatus());
             ps.setTimestamp(6, Timestamp.valueOf(order.getCreatedAt()));
+            ps.setDouble(7, order.getTotalAmount());
+
 
             int affectedRows = ps.executeUpdate();
             if (affectedRows == 0) {
@@ -58,10 +60,11 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public List<Order> findByBuyerId(int buyerId) throws Exception {
         List<Order> orders = new ArrayList<>();
-        String sql = "SELECT * FROM orders WHERE buyer_id = ? ORDER BY created_at DESC";
+        String sql = "SELECT o.*, gp.price as total_amount FROM orders o " +
+                "JOIN gig_prices gp ON o.price_id = gp.price_id " +
+                "WHERE o.buyer_id = ? ORDER BY o.created_at DESC";
         try (Connection con = DatabaseConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-
             ps.setInt(1, buyerId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -205,6 +208,53 @@ public class OrderDaoImpl implements OrderDao {
         if (completedAt != null) {
             order.setCompletedAt(completedAt.toLocalDateTime());
         }
+        order.setTotalAmount(rs.getDouble("total_amount"));
         return order;
+    }
+    @Override
+    public int countByGigId(int gigId) throws Exception {
+        String sql = "SELECT COUNT(*) FROM orders WHERE gig_id = ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, gigId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        }
+        return 0;
+    }
+    @Override
+    public List<Order> findRecentOrders(int limit) throws Exception {
+        List<Order> orders = new ArrayList<>();
+        String sql = "SELECT * FROM orders ORDER BY created_at DESC LIMIT ?";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, limit);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    orders.add(extractOrderFromResultSet(rs));
+                }
+            }
+        }
+        return orders;
+    }
+
+    @Override
+    public List<Order> findBySellerIdAndStatus(int sellerId, String status) throws Exception {
+        List<Order> orders = new ArrayList<>();
+        String sql = "SELECT * FROM orders WHERE seller_id = ? AND status = ? ORDER BY created_at DESC";
+        try (Connection con = DatabaseConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, sellerId);
+            ps.setString(2, status);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    orders.add(extractOrderFromResultSet(rs));
+                }
+            }
+        }
+        return orders;
     }
 }

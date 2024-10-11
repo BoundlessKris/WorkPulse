@@ -123,4 +123,8 @@ public interface GigDao {
      * @throws Exception If there's an error during the database operation
      */
     List<Gig> findByPriceRange(double minPrice, double maxPrice) throws Exception;
+
+    List<Gig> findTopRated(int limit) throws Exception;
+
+    List<Gig> findMostRecent(int limit) throws Exception;
 }

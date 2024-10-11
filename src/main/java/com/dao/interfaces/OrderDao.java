@@ -117,4 +117,10 @@ public interface OrderDao {
      * @throws Exception If there's an error during the database operation
      */
     double calculateSellerEarnings(int sellerId, LocalDateTime startDate, LocalDateTime endDate) throws Exception;
+
+    int countByGigId(int gigId) throws Exception;
+
+    List<Order> findRecentOrders(int limit) throws Exception;
+    List<Order> findBySellerIdAndStatus(int sellerId, String status) throws Exception;
 }
+

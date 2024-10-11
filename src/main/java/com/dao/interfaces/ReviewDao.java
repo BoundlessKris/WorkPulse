@@ -123,4 +123,7 @@ public interface ReviewDao {
      * @throws Exception If there's an error during the database operation
      */
     List<Review> findMostRecentReviewsForGig(int gigId, int limit) throws Exception;
+
+    List<Review> findTopRatedReviews(int limit) throws Exception;
+    boolean hasUserReviewedGig(int userId, int gigId) throws Exception;
 }
