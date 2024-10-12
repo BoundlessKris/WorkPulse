@@ -24,10 +24,6 @@ public class BuyerRequest {
         this.expiresAt = expiresAt;
     }
 
-    public BuyerRequest() {
-
-    }
-
     public int getRequestId() {
         return requestId;
     }

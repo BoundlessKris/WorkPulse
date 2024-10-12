@@ -126,4 +126,6 @@ public interface ReviewDao {
 
     List<Review> findTopRatedReviews(int limit) throws Exception;
     boolean hasUserReviewedGig(int userId, int gigId) throws Exception;
+
+    List<Review> findAll() throws Exception;
 }

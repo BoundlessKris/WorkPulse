@@ -209,6 +209,20 @@ public class ReviewDaoImpl implements ReviewDao {
         return false;
     }
 
+    @Override
+    public List<Review> findAll() throws Exception {
+        List<Review> reviews = new ArrayList<>();
+        String sql = "SELECT * FROM reviews";
+        try (Connection con = DatabaseConnection.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                reviews.add(extractReviewFromResultSet(rs));
+            }
+        }
+        return reviews;
+    }
+
     private Review extractReviewFromResultSet(ResultSet rs) throws SQLException {
         Review review = new Review();
         review.setReviewId(rs.getInt("review_id"));
@@ -219,4 +233,5 @@ public class ReviewDaoImpl implements ReviewDao {
         review.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
         return review;
     }
+
 }
