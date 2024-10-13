@@ -1,5 +1,5 @@
 function footer() {
-  return `<footer>
+    return `<footer>
   <div>
     <ul>
       <li><h4>Categories</h4></li>
