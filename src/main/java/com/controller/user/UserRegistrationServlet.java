@@ -77,7 +77,9 @@ public class UserRegistrationServlet extends HttpServlet {
 			User registeredUser = userService.registerUser(user);
 			if (registeredUser != null) {
 				// Registration successful, redirect to login page
-				response.sendRedirect(request.getContextPath() + "/login.jsp");
+				request.setAttribute("username", registeredUser.getUsername());
+				request.getRequestDispatcher("/inquiry.jsp").forward(request, response);
+//				response.sendRedirect(request.getContextPath() + "/login.jsp");
 				System.out.println("registration successful");
 			} else {
 				// Registration failed, display error on registration page

@@ -10,8 +10,7 @@
 <form action="UserRegistrationServlet" method="post" class="login-form">
     <h2>Registration</h2>
     <div class="input-box">
-        Username: <input type="text" placeholder="UserName"
-                         name="username"><br>
+        Username: <input type="text" placeholder="UserName" name="username"><br>
     </div>
     <div class="input-box">
         Email: <input type="email" placeholder="Email" name="email"><br>
@@ -20,15 +19,14 @@
         Password : <input type="password" placeholder="Password" name="password"><br>
     </div>
     <div class="input-box">
-        Confirm-Password : <input type="password" placeholder="Confirm-Password"
-                                  name="confirmPassword"><br>
+        Confirm-Password : <input type="password" placeholder="Confirm-Password" name="confirmPassword"><br>
     </div>
     <div class="input-box">
         UserType :
         <select name="userType" class="select">
             <option value="" disabled selected>Select Role</option>
-            <option value="buyer">buyer</option>
-            <option value="seller">seller</option>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
         </select>
     </div>
     <div class="input-box">
