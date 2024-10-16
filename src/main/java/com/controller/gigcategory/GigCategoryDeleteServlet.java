@@ -1,4 +1,4 @@
-package com.controller.gig;
+package com.controller.gigcategory;
 
 import com.model.User;
 import com.service.interfaces.GigCategoryService;
