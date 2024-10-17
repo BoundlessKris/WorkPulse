@@ -1,6 +1,7 @@
 package com.controller.notification;
 
 import com.model.User;
+import com.service.impl.NotificationServiceImpl;
 import com.service.interfaces.NotificationService;
 import com.dao.impl.NotificationDaoImpl;
 

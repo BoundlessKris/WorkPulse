@@ -1,6 +1,5 @@
 package com.controller.notification;
 
-import com.model.Notification;
 import com.model.User;
 import com.service.impl.NotificationServiceImpl;
 import com.service.interfaces.NotificationService;
@@ -13,10 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/notification/list")
-public class NotificationListServlet extends HttpServlet {
+@WebServlet("/notification/markAsRead")
+public class NotificationMarkAsReadServlet extends HttpServlet {
     private NotificationService notificationService;
 
     @Override
@@ -25,7 +23,7 @@ public class NotificationListServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect(request.getContextPath() + "/user/login");
@@ -33,14 +31,14 @@ public class NotificationListServlet extends HttpServlet {
         }
 
         User currentUser = (User) session.getAttribute("user");
+        int notificationId = Integer.parseInt(request.getParameter("notificationId"));
 
         try {
-            List<Notification> notifications = notificationService.getNotificationsByUserId(currentUser.getUserId());
-            request.setAttribute("notifications", notifications);
-            request.getRequestDispatcher("/WEB-INF/jsp/notification/list.jsp").forward(request, response);
+            notificationService.markNotificationAsRead(notificationId);
+            response.sendRedirect(request.getContextPath() + "/notification/list");
         } catch (Exception e) {
             request.setAttribute("error", "An error occurred: " + e.getMessage());
-            request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/notification/list");
         }
     }
 }

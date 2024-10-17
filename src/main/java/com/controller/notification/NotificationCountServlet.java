@@ -1,6 +1,5 @@
 package com.controller.notification;
 
-import com.model.Notification;
 import com.model.User;
 import com.service.impl.NotificationServiceImpl;
 import com.service.interfaces.NotificationService;
@@ -13,10 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/notification/list")
-public class NotificationListServlet extends HttpServlet {
+@WebServlet("/notification/count")
+public class NotificationCountServlet extends HttpServlet {
     private NotificationService notificationService;
 
     @Override
@@ -28,19 +26,19 @@ public class NotificationListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
-            response.sendRedirect(request.getContextPath() + "/user/login");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
 
         User currentUser = (User) session.getAttribute("user");
 
         try {
-            List<Notification> notifications = notificationService.getNotificationsByUserId(currentUser.getUserId());
-            request.setAttribute("notifications", notifications);
-            request.getRequestDispatcher("/WEB-INF/jsp/notification/list.jsp").forward(request, response);
+            int unreadCount = notificationService.countUnreadNotifications(currentUser.getUserId());
+            response.setContentType("application/json");
+            response.getWriter().write("{\"count\":" + unreadCount + "}");
         } catch (Exception e) {
-            request.setAttribute("error", "An error occurred: " + e.getMessage());
-            request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 }
