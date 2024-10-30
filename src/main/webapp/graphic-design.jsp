@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -27,8 +26,7 @@
 
 <body onload="show()">
 
-<link rel="stylesheet" href="css/navbar.css">
-<div id="nav"></div>
+<%@include file="navbar.jsp" %>
 
 <!-- head section -->
 <div id="head">
@@ -297,8 +295,7 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="css/footer.css">
-<div id="footer"></div>
+<%@include file="footer.jsp" %>
 
 <script>
     $(function () {
@@ -308,18 +305,5 @@
         $("#small-slider").load("small-slider-graphic-design.jsp");
     });
 </script>
-
-<script type="module">
-    import navbar from "<%=request.getContextPath()%>/script/navbar_exp.js";
-
-    document.getElementById("nav").innerHTML = navbar();
-</script>
-
-<script type="module">
-    import {footer} from "<%=request.getContextPath()%>/script/footer.js";
-
-    document.getElementById("footer").innerHTML = footer();
-</script>
 </body>
-
 </html>

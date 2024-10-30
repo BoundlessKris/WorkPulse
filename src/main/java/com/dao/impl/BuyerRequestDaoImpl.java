@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-import java.math.BigDecimal;
 
 public class BuyerRequestDaoImpl implements BuyerRequestDao {
 

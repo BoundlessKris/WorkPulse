@@ -57,7 +57,7 @@
                              alt=" 404 error"/>
 
                         <p class="lead-p-tag">
-                            WordPress Developers
+                            WordPress
                             <span class="arrow-in-span-in-small-slider">&rarr;</span>
                         </p>
                     </div>

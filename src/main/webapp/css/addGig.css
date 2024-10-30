@@ -42,7 +42,7 @@ h3 {
     gap: 40px; /* Increased space between left and right sections */
 }
 
-.left, 
+.left,
 .right {
     flex: 1;
     display: flex;
@@ -65,7 +65,7 @@ input, select, textarea {
     background-color: #fafafa;
 }
 
-textarea::placeholder, 
+textarea::placeholder,
 input::placeholder {
     font-family: 'Montserrat', sans-serif;
 }
