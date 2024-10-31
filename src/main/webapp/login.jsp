@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Sign Up</title>
     <!-- Link to external CSS for styles -->
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="css/login.css">
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 
@@ -49,7 +51,7 @@
     <!-- Welcome back message for login -->
     <div class="info-text login">
         <h2 class="animation" style="--data:0;">Welcome Back!</h2>
-        <p class="animation" style="--data:1">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <p class="animation" style="--data:1">Access your account to see what's happening.</p>
     </div>
 
     <!-- Sign-Up form container -->
@@ -78,17 +80,19 @@
                 <i class="fa-solid fa-lock"></i> <!-- Lock icon -->
             </div>
             <div class="input-box animation" style="--data:19">
-                <input type="password" name="confirmPassword" placeholder="" >
+                <input type="password" name="confirmPassword" placeholder="">
                 <label>Confirm Password</label>
                 <i class="fa-solid fa-lock"></i> <!-- Lock icon -->
             </div>
-            <div class="input-box animation" style="--data:19">
-                UserType :
-                <select name="userType" class="select">
-                    <option value="" disabled selected>Select Role</option>
-                    <option value="buyer">Buyer</option>
-                    <option value="seller">Seller</option>
-                </select>
+            <div class="input-box animation" style="--data:19;">
+                <label>User type</label>
+                <div class="select-container">
+                    <select name="userType" class="select">
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller</option>
+                    </select>
+                </div>
             </div>
             <!-- Submit button -->
             <button type="submit" class="btn animation" style="--data:20">Sign Up</button>
@@ -102,12 +106,12 @@
 
     <!-- Welcome back message for signup -->
     <div class="info-text signup">
-        <h2 class="animation" style="--data:22">Welcome Back!</h2>
-        <p class="animation" style="--data:23">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <h2 class="animation" style="--data:22">Register Now!</h2>
+        <p class="animation" style="--data:23">Sign up to start buying and selling quality services worldwide.</p>
     </div>
 </div>
 
 <!-- External JavaScript file -->
-<script src="./script/login.js"></script>
+<script src="script/login.js"></script>
 </body>
 </html>

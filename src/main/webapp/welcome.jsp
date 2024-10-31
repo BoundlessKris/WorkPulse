@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkPulse Welcome</title>
+    <title>WorkPulse - Freelance Services Marketplace</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="welcome.css">
+    <link rel="stylesheet" href="css/welcome.css">
 </head>
 <body>
 <nav class="navbar">
     <div class="nav-container">
         <a href="#" class="logo">
-            <img src="workpulse.png" alt="WorkPulse">
+            <img src="assets/landing page imgs/workpulse.png" alt="WorkPulse">
         </a>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="What service are you looking for today?">
@@ -91,6 +91,7 @@
     </div>
 </section>
 
-<script src="welcome.js"></script>
+<script src="script/welcome.js"></script>
+<%@include file="footer.jsp"%>
 </body>
 </html>
