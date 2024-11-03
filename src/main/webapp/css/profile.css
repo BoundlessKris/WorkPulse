@@ -41,6 +41,7 @@ body {
     height: 4vh;
     display: flex;
 }
+
 .nav-menu {
     display: flex;
     gap: 1.5rem;
@@ -258,6 +259,8 @@ body {
     margin: 2rem;
     cursor: pointer;
     transition: all 0.2s;
+    text-decoration: none;
+    color: black;
 }
 
 .create-gig:hover {
