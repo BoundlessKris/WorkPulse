@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiverr Profile</title>
+    <title>WorkPulse Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 <header class="header">
     <nav class="nav">
         <div class="nav-left">
-            <div class="logo"><img class="logo" src="logo-no-background.png"></div>
+            <div class="logo"><img class="logo" src="assets/landing%20page%20imgs/workpulse.png"></div>
             <ul class="nav-menu">
                 <li><i class="fas fa-chart-line"></i> Dashboard</li>
                 <li><i class="fas fa-briefcase"></i> My Business</li>
@@ -43,7 +43,7 @@
             <p class="handle"><i class="fas fa-at"></i>satyajyoti_</p>
             <button class="preview-btn">
                 <i class="far fa-eye"></i>
-                Preview Fiverr Profile
+                Preview WorkPulse Profile
             </button>
         </div>
         <div class="profile-info">
@@ -69,10 +69,10 @@
                     ACTIVE GIGS
                 </div>
             </div>
-            <div class="create-gig">
+            <a href="addGig.jsp" class="create-gig">
                 <div class="plus-icon">+</div>
                 <span>Create a new Gig</span>
-            </div>
+            </a>
         </div>
 
         <!-- Description Section -->
@@ -87,7 +87,7 @@
                     Edit Description
                 </a>
             </div>
-            <p class="description-text">jkghakjghhgakjjvkjzbfafheuigrugbjhvbjdbsaguygyhvbhjfafguygfhjvbhdfuaegfyugfsvjhbagguyghfhjhvsaugfyugbhjfasgfuegfuyasggryvagfuyagfuygstuegftufgfuyagyuwgurtgf</p>
+            <p class="description-text">I a'm a developer.</p>
 
             <div class="section-header">
                 <h2 class="section-title">
@@ -136,5 +136,7 @@
         </div>
     </div>
 </div>
+
+<%@include file="footer.jsp" %>
 </body>
 </html>

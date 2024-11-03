@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +28,16 @@
             <div class="profile-dropdown">
                 <img src="/api/placeholder/32/32" alt="Profile" class="profile-image" id="profileDropdown">
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="#" class="dropdown-item">
+                    <a href="manage-order.jsp" class="dropdown-item">
                         <i class="fas fa-shopping-bag"></i> Orders
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="myGigs.jsp" class="dropdown-item">
                         <i class="fas fa-store"></i> Gigs
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="profile.jsp" class="dropdown-item">
                         <i class="fas fa-user"></i> Profile
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="" class="dropdown-item">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
                 </div>
@@ -92,6 +93,6 @@
 </section>
 
 <script src="script/welcome.js"></script>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 </body>
 </html>
