@@ -16,34 +16,28 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class UserDeleteServlet
  */
+
 @WebServlet("/user/delete")
 public class UserDeleteServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private UserService userService;
 
 	@Override
 	public void init() throws ServletException {
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserDeleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			response.sendRedirect(request.getContextPath() + "/user/login");
+			return;
+		}
+
+		request.getRequestDispatcher("/WEB-INF/jsp/user/deleteConfirmation.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session == null || session.getAttribute("user") == null) {
@@ -67,5 +61,4 @@ public class UserDeleteServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/user/profile");
 		}
 	}
-
 }

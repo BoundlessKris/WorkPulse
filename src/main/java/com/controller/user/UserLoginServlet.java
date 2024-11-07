@@ -59,7 +59,7 @@ public class UserLoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				// Redirect to dashboard after successful login
-				response.sendRedirect(request.getContextPath() + "/register.jsp");
+				response.sendRedirect(request.getContextPath() + "/welcome.jsp");
 			} else {
 				System.out.println("login failed");
 				// Invalid login, forward to login page with error

@@ -16,9 +16,9 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class UserPasswordChangeServlet
  */
+
 @WebServlet("/user/changePassword")
 public class UserPasswordChangeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	private UserService userService;
 
 	@Override
@@ -26,17 +26,7 @@ public class UserPasswordChangeServlet extends HttpServlet {
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserPasswordChangeServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session == null || session.getAttribute("user") == null) {
@@ -47,9 +37,7 @@ public class UserPasswordChangeServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session == null || session.getAttribute("user") == null) {
@@ -77,5 +65,4 @@ public class UserPasswordChangeServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/jsp/user/changePassword.jsp").forward(request, response);
 		}
 	}
-
 }

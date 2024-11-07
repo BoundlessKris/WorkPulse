@@ -1,41 +1,60 @@
 package com.controller.user;
 
-import java.io.IOException;
+import com.model.User;
+import com.service.interfaces.UserService;
+import com.service.impl.UserServiceImpl;
+import com.dao.impl.UserDaoImpl;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 
-/**
- * Servlet implementation class UserUpdateServlet
- */
-@WebServlet("/UserUpdateServlet")
+@WebServlet("/user/update")
 public class UserUpdateServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private UserService userService;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserUpdateServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	@Override
+	public void init() throws ServletException {
+		userService = new UserServiceImpl(new UserDaoImpl());
+	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			response.sendRedirect(request.getContextPath() + "/user/login");
+			return;
+		}
+
+		User user = (User) session.getAttribute("user");
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("/WEB-INF/jsp/user/update.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			response.sendRedirect(request.getContextPath() + "/user/login");
+			return;
+		}
 
+		User user = (User) session.getAttribute("user");
+		user.setEmail(request.getParameter("email"));
+		// Set other updatable fields
+
+		try {
+			User updatedUser = userService.updateUser(user);
+			session.setAttribute("user", updatedUser);
+			request.setAttribute("message", "Profile updated successfully");
+		} catch (Exception e) {
+			request.setAttribute("error", "An error occurred: " + e.getMessage());
+		}
+
+		request.getRequestDispatcher("/WEB-INF/jsp/user/profile.jsp").forward(request, response);
+	}
 }

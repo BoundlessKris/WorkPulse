@@ -14,10 +14,9 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UserPasswordResetServlet
  */
+
 @WebServlet("/user/resetPassword")
 public class UserPasswordResetServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 	private UserService userService;
 
 	@Override
@@ -25,25 +24,12 @@ public class UserPasswordResetServlet extends HttpServlet {
 		userService = new UserServiceImpl(new UserDaoImpl());
 	}
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserPasswordResetServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/WEB-INF/jsp/user/resetPassword.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 
@@ -56,5 +42,4 @@ public class UserPasswordResetServlet extends HttpServlet {
 
 		request.getRequestDispatcher("/WEB-INF/jsp/user/resetPassword.jsp").forward(request, response);
 	}
-
 }
