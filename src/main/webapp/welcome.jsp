@@ -9,56 +9,7 @@
     <link rel="stylesheet" href="css/welcome.css">
 </head>
 <body>
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#" class="logo">
-            <img src="assets/landing page imgs/workpulse.png" alt="WorkPulse">
-        </a>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="What service are you looking for today?">
-            <i class="fas fa-search search-icon"></i>
-        </div>
-        <div class="nav-right">
-            <div class="nav-icons">
-                <i class="far fa-bell nav-icon"></i>
-                <i class="far fa-envelope nav-icon"></i>
-                <i class="far fa-heart nav-icon"></i>
-                <a href="#" class="nav-icon">Orders</a>
-            </div>
-            <div class="profile-dropdown">
-                <img src="/api/placeholder/32/32" alt="Profile" class="profile-image" id="profileDropdown">
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="manage-order.jsp" class="dropdown-item">
-                        <i class="fas fa-shopping-bag"></i> Orders
-                    </a>
-                    <a href="myGigs.jsp" class="dropdown-item">
-                        <i class="fas fa-store"></i> Gigs
-                    </a>
-                    <a href="profile.jsp" class="dropdown-item">
-                        <i class="fas fa-user"></i> Profile
-                    </a>
-                    <a href="" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div class="categories">
-    <div class="categories-container">
-        <a href="#" class="category-link">Graphics & Design</a>
-        <a href="#" class="category-link">Programming & Tech</a>
-        <a href="#" class="category-link">Digital Marketing</a>
-        <a href="#" class="category-link">Video & Animation</a>
-        <a href="#" class="category-link">Writing & Translation</a>
-        <a href="#" class="category-link">Music & Audio</a>
-        <a href="#" class="category-link">Business</a>
-        <a href="#" class="category-link">AI Services</a>
-    </div>
-</div>
-
+<%@include file="header.jsp"%>
 <section class="hero">
     <div class="hero-container">
         <h1>Welcome back, <span id="username">User</span></h1>
@@ -91,7 +42,20 @@
         </div>
     </div>
 </section>
-
+<a name="categories"></a>
+<section class="categories">
+    <h2>Explore Popular Categories</h2>
+    <div class="category-list">
+        <a href="programming-tech.jsp" class="category-item">Programming & Tech</a>
+        <a href="graphic-design.jsp" class="category-item">Graphic Design</a>
+        <a href="digital-marketing.jsp" class="category-item">Digital Marketing</a>
+        <a href="writing-translation.jsp" class="category-item">Writing & Translation</a>
+        <a href="video-animation.jsp" class="category-item">Video & Animation</a>
+        <a href="ai-services.jsp" class="category-item">AI Services</a>
+        <a href="music-audio.jsp" class="category-item">Music & Audio</a>
+        <a href="consulting.jsp" class="category-item">Consulting</a>
+    </div>
+</section>
 <script src="script/welcome.js"></script>
 <%@include file="footer.jsp" %>
 </body>
