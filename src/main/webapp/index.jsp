@@ -6,7 +6,7 @@
 <body>
 <%
     if (session == null || session.getAttribute("username") == null) {
-        response.sendRedirect("landing.jsp");
+        response.sendRedirect("jsp/index.jsp");
         return;
     }
 
