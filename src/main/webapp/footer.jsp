@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Footer</title>
-    <link rel="stylesheet" href="css/foot.css"/>
+    <link rel="stylesheet" href="old%20css/css/foot.css"/>
 </head>
 <body>
 <hr>

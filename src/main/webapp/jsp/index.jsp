@@ -52,27 +52,27 @@
         <!-- Hero Image -->
         <div class="hero-image">
             <div class="hero-image-wrapper">
-                <img src="${pageContext.request.contextPath}/images/hero-image.png" alt="Professional services">
+                <img src="hero-img.webp" alt="Professional services">
             </div>
         </div>
     </div>
 </section>
 
 <!-- Trusted By Section -->
-<section class="trusted-by">
+<section class="trusted-by" style="background: linear-gradient(380deg, #0d084d 0%, #1dbf73 100%);">
     <div class="container">
         <div class="trusted-content">
             <span class="trusted-text">Trusted by:</span>
             <ul class="trusted-companies">
-                <li><img src="${pageContext.request.contextPath}/images/companies/company1.png" alt="Company 1"></li>
-                <li><img src="${pageContext.request.contextPath}/images/companies/company2.png" alt="Company 2"></li>
-                <li><img src="${pageContext.request.contextPath}/images/companies/company3.png" alt="Company 3"></li>
-                <li><img src="${pageContext.request.contextPath}/images/companies/company4.png" alt="Company 4"></li>
-                <li><img src="${pageContext.request.contextPath}/images/companies/company5.png" alt="Company 5"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.e74f4d9.svg" alt="Company 1"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.ff37dd3.svg" alt="Company 2"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.b310314.svg" alt="Company 3"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.d398de5.svg" alt="Company 4"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.7c1170d.svg" alt="Company 5"></li>
             </ul>
         </div>
     </div>
-</section>\
+</section>
 
 <!-- Popular Services Section -->
 <section class="popular-services">
@@ -89,7 +89,7 @@
                     <!-- Service Card 1 -->
                     <div class="service-card">
                         <a href="${pageContext.request.contextPath}/category/logo-design">
-                            <div class="service-card-background" style="background-image: url('${pageContext.request.contextPath}/images/services/logo-design.jpg')">
+                            <div class="service-card-background" style="background-image: url('https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/logo-design.png')">
                                 <div class="service-card-content">
                                     <p class="service-small-text">Build your brand</p>
                                     <h3 class="service-title">Logo Design</h3>
@@ -101,7 +101,7 @@
                     <!-- Service Card 2 -->
                     <div class="service-card">
                         <a href="${pageContext.request.contextPath}/category/wordpress">
-                            <div class="service-card-background" style="background-image: url('${pageContext.request.contextPath}/images/services/wordpress.jpg')">
+                            <div class="service-card-background" style="background-image: url('https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156477/website-development.png')">
                                 <div class="service-card-content">
                                     <p class="service-small-text">Customize your site</p>
                                     <h3 class="service-title">WordPress</h3>
@@ -113,7 +113,7 @@
                     <!-- Service Card 3 -->
                     <div class="service-card">
                         <a href="${pageContext.request.contextPath}/category/voice-over">
-                            <div class="service-card-background" style="background-image: url('${pageContext.request.contextPath}/images/services/voice-over.jpg')">
+                            <div class="service-card-background" style="background-image: url('https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156479/voice-over.png')">
                                 <div class="service-card-content">
                                     <p class="service-small-text">Share your message</p>
                                     <h3 class="service-title">Voice Over</h3>
@@ -125,10 +125,10 @@
                     <!-- Service Card 4 -->
                     <div class="service-card">
                         <a href="${pageContext.request.contextPath}/category/video-explainer">
-                            <div class="service-card-background" style="background-image: url('${pageContext.request.contextPath}/images/services/video-explainer.jpg')">
+                            <div class="service-card-background" style="background-image: url('https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/video-editing.png')">
                                 <div class="service-card-content">
                                     <p class="service-small-text">Engage your audience</p>
-                                    <h3 class="service-title">Video Explainer</h3>
+                                    <h3 class="service-title">Video Editing</h3>
                                 </div>
                             </div>
                         </a>
@@ -137,10 +137,10 @@
                     <!-- Service Card 5 -->
                     <div class="service-card">
                         <a href="${pageContext.request.contextPath}/category/social-media">
-                            <div class="service-card-background" style="background-image: url('${pageContext.request.contextPath}/images/services/social-media.jpg')">
+                            <div class="service-card-background" style="background-image: url('https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156476/social-media-marketing.png')">
                                 <div class="service-card-content">
                                     <p class="service-small-text">Reach more customers</p>
-                                    <h3 class="service-title">Social Media</h3>
+                                    <h3 class="service-title">Social Media Marketing</h3>
                                 </div>
                             </div>
                         </a>
@@ -197,9 +197,9 @@
         <div class="categories-grid">
             <!-- Category Card 1 -->
             <div class="category-card">
-                <a href="${pageContext.request.contextPath}/category/graphics-design">
+                <a href="../graphic-design.jsp" target="_blank">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/graphics-design.png" alt="Graphics & Design">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design-thin.ff38893.svg" alt="Graphics & Design">
                     </div>
                     <h3 class="category-title">Graphics & Design</h3>
                     <div class="category-arrow">
@@ -212,7 +212,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/digital-marketing">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/digital-marketing.png" alt="Digital Marketing">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing-thin.68edb44.svg" alt="Digital Marketing">
                     </div>
                     <h3 class="category-title">Digital Marketing</h3>
                     <div class="category-arrow">
@@ -225,7 +225,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/writing-translation">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/writing.png" alt="Writing & Translation">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation-thin.fd3699b.svg" alt="Writing & Translation">
                     </div>
                     <h3 class="category-title">Writing & Translation</h3>
                     <div class="category-arrow">
@@ -238,7 +238,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/video-animation">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/video-animation.png" alt="Video & Animation">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation-thin.9d3f24d.svg" alt="Video & Animation">
                     </div>
                     <h3 class="category-title">Video & Animation</h3>
                     <div class="category-arrow">
@@ -251,7 +251,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/music-audio">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/music-audio.png" alt="Music & Audio">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/music-audio-thin.43a9801.svg" alt="Music & Audio">
                     </div>
                     <h3 class="category-title">Music & Audio</h3>
                     <div class="category-arrow">
@@ -264,7 +264,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/programming">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/programming.png" alt="Programming & Tech">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/programming-tech-thin.56382a2.svg" alt="Programming & Tech">
                     </div>
                     <h3 class="category-title">Programming & Tech</h3>
                     <div class="category-arrow">
@@ -277,7 +277,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/business">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/business.png" alt="Business">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business-thin.885e68e.svg" alt="Business">
                     </div>
                     <h3 class="category-title">Business</h3>
                     <div class="category-arrow">
@@ -290,7 +290,7 @@
             <div class="category-card">
                 <a href="${pageContext.request.contextPath}/category/lifestyle">
                     <div class="category-icon">
-                        <img src="${pageContext.request.contextPath}/images/categories/lifestyle.png" alt="Lifestyle">
+                        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting-thin.d5547ff.svg" alt="Lifestyle">
                     </div>
                     <h3 class="category-title">Lifestyle</h3>
                     <div class="category-arrow">
@@ -417,7 +417,7 @@
 
             <!-- Right Image -->
             <div class="business-image">
-                <img src="${pageContext.request.contextPath}/images/business-solution.png" alt="Business Solutions">
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/2321104e0c585cceea525419551d3a7c-1721984733481/fiverr-pro.png" alt="Business Solutions">
             </div>
         </div>
 
@@ -425,10 +425,10 @@
         <div class="trusted-companies">
             <div class="companies-label">Trusted by:</div>
             <div class="companies-logos">
-                <img src="${pageContext.request.contextPath}/images/companies/company1.png" alt="Company 1">
-                <img src="${pageContext.request.contextPath}/images/companies/company2.png" alt="Company 2">
-                <img src="${pageContext.request.contextPath}/images/companies/company3.png" alt="Company 3">
-                <img src="${pageContext.request.contextPath}/images/companies/company4.png" alt="Company 4">
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.e74f4d9.svg" alt="Company 1"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.ff37dd3.svg" alt="Company 2"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.b310314.svg" alt="Company 3"></li>
+                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.d398de5.svg" alt="Company 4"></li>
             </div>
         </div>
     </div>

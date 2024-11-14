@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkPulse - Freelance Services Marketplace</title>
-    <link rel="stylesheet" href="css/land.css">
+    <link rel="stylesheet" href="../css/home.css">
     <!-- Google Icons Link -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
@@ -16,7 +16,7 @@
 <header>
     <nav class="navbar">
         <a href="#" class="logo">
-            <img src="assets/landing page imgs/work.png" alt="WorkPulse">
+            <img src="../assets/landing page imgs/work.png" alt="WorkPulse">
         </a>
         <ul class="menu-links">
             <li><a href="landing.jsp">Home</a></li>
@@ -31,8 +31,8 @@
                 </a>
             </li>
             <li><a href="#">Become a Seller</a></li>
-            <li><a href="login.jsp">Login</a></li>
-            <li class="sign-up-btn"><a href="register.jsp">Join Us</a></li>
+            <li><a href="../login.jsp">Login</a></li>
+            <li class="sign-up-btn"><a href="../register.jsp">Join Us</a></li>
             <span id="close-menu-btn" class="material-symbols-outlined">close</span>
         </ul>
         <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
@@ -65,14 +65,14 @@
 <section class="categories">
     <h2>Explore Popular Categories</h2>
     <div class="category-list">
-        <a href="programming-tech.jsp" class="category-item">Programming & Tech</a>
-        <a href="graphic-design.jsp" class="category-item">Graphic Design</a>
-        <a href="digital-marketing.jsp" class="category-item">Digital Marketing</a>
-        <a href="writing-translation.jsp" class="category-item">Writing & Translation</a>
-        <a href="video-animation.jsp" class="category-item">Video & Animation</a>
-        <a href="ai-services.jsp" class="category-item">AI Services</a>
-        <a href="music-audio.jsp" class="category-item">Music & Audio</a>
-        <a href="consulting.jsp" class="category-item">Consulting</a>
+        <a href="../programming-tech.jsp" class="category-item">Programming & Tech</a>
+        <a href="../graphic-design.jsp" class="category-item">Graphic Design</a>
+        <a href="../digital-marketing.jsp" class="category-item">Digital Marketing</a>
+        <a href="../writing-translation.jsp" class="category-item">Writing & Translation</a>
+        <a href="../video-animation.jsp" class="category-item">Video & Animation</a>
+        <a href="../ai-services.jsp" class="category-item">AI Services</a>
+        <a href="../music-audio.jsp" class="category-item">Music & Audio</a>
+        <a href="../consulting.jsp" class="category-item">Consulting</a>
     </div>
 </section>
 
@@ -84,61 +84,61 @@
         <div class="service-item">
             <div class="service-card website-development">
                 <h3>Website Development</h3>
-                <img src="assets/landing page imgs/web.webp" alt="Website Development">
+                <img src="../assets/landing page imgs/web.webp" alt="Website Development">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card logo-design">
                 <h3>Logo Design</h3>
-                <img src="assets/landing page imgs/logo.webp" alt="Logo Design">
+                <img src="../assets/landing page imgs/logo.webp" alt="Logo Design">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card seo">
                 <h3>SEO</h3>
-                <img src="assets/landing page imgs/seo.webp" alt="SEO">
+                <img src="../assets/landing page imgs/seo.webp" alt="SEO">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card social-media">
                 <h3>Social Media Marketing</h3>
-                <img src="assets/landing page imgs/social.webp" alt="Social Media Marketing">
+                <img src="../assets/landing page imgs/social.webp" alt="Social Media Marketing">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card software-dev">
                 <h3>Software Development</h3>
-                <img src="assets/landing page imgs/software.webp" alt="Software-dev">
+                <img src="../assets/landing page imgs/software.webp" alt="Software-dev">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card ecommerce">
                 <h3>E-Commerce Marketing</h3>
-                <img src="assets/landing page imgs/e-commerce.webp" alt="E-Commerce">
+                <img src="../assets/landing page imgs/e-commerce.webp" alt="E-Commerce">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card ml">
                 <h3>Data Science & ML</h3>
-                <img src="assets/landing page imgs/ml.webp" alt="Data Science & ML">
+                <img src="../assets/landing page imgs/ml.webp" alt="Data Science & ML">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card architecture-design">
                 <h3>Architecture & Interior Design</h3>
-                <img src="assets/landing page imgs/architecture-design.webp" alt="Data Science & ML">
+                <img src="../assets/landing page imgs/architecture-design.webp" alt="Data Science & ML">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card product-photography">
                 <h3>Product Photography</h3>
-                <img src="assets/landing page imgs/product-photography.webp" alt="Data Science & ML">
+                <img src="../assets/landing page imgs/product-photography.webp" alt="Data Science & ML">
             </div>
         </div>
         <div class="service-item">
             <div class="service-card video-edit">
                 <h3>Video Editing</h3>
-                <img src="assets/landing page imgs/video-editing.webp" alt="Data Science & ML">
+                <img src="../assets/landing page imgs/video-editing.webp" alt="Data Science & ML">
             </div>
         </div>
     </div>
@@ -180,15 +180,15 @@
     <h2>Guides to help you grow</h2>
     <div class="guides-container">
         <div class="guide-item">
-            <img src="assets/landing page imgs/business.jpg" alt="Start a side business">
+            <img src="../assets/landing page imgs/business.jpg" alt="Start a side business">
             <p>Start a side business</p>
         </div>
         <div class="guide-item">
-            <img src="assets/landing page imgs/ecommerce-ideas.jpg" alt="Ecommerce business ideas">
+            <img src="../assets/landing page imgs/ecommerce-ideas.jpg" alt="Ecommerce business ideas">
             <p>Ecommerce business ideas</p>
         </div>
         <div class="guide-item">
-            <img src="assets/landing page imgs/online.png"
+            <img src="../assets/landing page imgs/online.png"
                  alt="Start an online business and work from home">
             <p>Start an online business and work from home</p>
         </div>

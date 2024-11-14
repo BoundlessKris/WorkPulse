@@ -22,7 +22,7 @@
         <!-- Social Login Buttons -->
         <div class="social-login">
             <button class="social-btn google-btn">
-                <img src="${pageContext.request.contextPath}/images/icons/google.svg" alt="Google">
+                <i class="fab fa-google"></i>
                 Continue with Google
             </button>
             <button class="social-btn facebook-btn">

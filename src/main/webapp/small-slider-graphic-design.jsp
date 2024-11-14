@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="css/small-slider-graphic-design.css">
+    <link rel="stylesheet" href="old%20css/css/small-slider-graphic-design.css">
     <script src="script/small-slider-graphic-design.js"></script>
     <title>card slider</title>
 </head>
