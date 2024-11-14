@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="old%20css/css/nav.css"/>
 </head>
 <body>
 <div id="navbar">

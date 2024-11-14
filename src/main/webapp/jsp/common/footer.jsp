@@ -59,7 +59,7 @@
         <div class="footer-bottom">
             <div class="footer-left">
                 <div class="footer-logo">
-                    <img src="${pageContext.request.contextPath}/images/logo-white.png" alt="WorkPulse">
+                    <img src="${pageContext.request.contextPath}/assets/landing page imgs/work.png" alt="WorkPulse">
                 </div>
                 <p class="copyright">© ${currentYear} WorkPulse. All rights reserved</p>
             </div>
